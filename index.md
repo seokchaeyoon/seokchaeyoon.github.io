@@ -119,16 +119,16 @@ Bootstrapping에서 핵심은 Bootstrap이라는 Orignal Dataset에서 뽑은 �
 결과값을 결합하는 방법에는 여러 가지가 있지만 여기에서는 대표적인 3가지의 결합 방법을 설명하도록 하겠습니다.
 
 * Majority Voting
-$$ { \hat { y }  }_{ Ensemble }=arg\max _{ i }{ (\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=i) } ,\quad i\quad \in \quad \{ 0,\quad 1\} ) } $$
-$$   \sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\quad 0)\quad =\quad 4 }   $$
-$$   \sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\quad 1)\quad =\quad 6 }   $$
+$$ { \hat { y }  }_{ Ensemble }=arg\max _{ i }{ (\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=i) } ,\quad i\quad \in \quad \{ 0,\quad 1\} ) } $$ <br>
+$$   \sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\quad 0)\quad =\quad 4 }   $$ <br>
+$$   \sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\quad 1)\quad =\quad 6 }   $$ <br>
 $$ { \hat { y }  }_{ Ensemble }\quad =\quad 1 $$
 
 * Weighted Voting (weight: training accuracy of individual models)
-$$ { \hat { y }  }_{ Ensemble }\quad =\quad arg\max _{ i }{ \left( \frac { \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\quad i \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right)  }  } ,\quad i\quad \in \quad \{ 0,\quad 1\}  \right)  }   $$
-$$ \frac { \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\quad 0 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right)  }  } =0.424  $$
-$$  \frac { \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\quad 1 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right)  }  } =0.576 $$
-$$  { \hat { y }  }_{ Ensemble }\quad =\quad 1 $$
+$$ { \hat { y }  }_{ Ensemble }\quad =\quad arg\max _{ i }{ \left( \frac { \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\quad i \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right)  }  } ,\quad i\quad \in \quad \{ 0,\quad 1\}  \right)  }   $$ <br>
+$$ \frac { \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\quad 0 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right)  }  } =0.424  $$ <br>
+$$  \frac { \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\quad 1 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right)  }  } =0.576 $$ <br>
+$$  { \hat { y }  }_{ Ensemble }\quad =\quad 1 $$ 
 * Majority Voting (weight: predicted probability of each class)
 $$   $$
 $$   $$
