@@ -12,7 +12,7 @@ use_math: true
 ## *“Bagging predictors is a method for generating multiple versions of a predictor and using these to get an aggregated predictor.”* (Breiman 1996)[^1]
 
 해당 포스트는 Ensemble 학습의 대표적인 방법 중의 하나인 Bagging에 대해 소개하고 있습니다. 포스트의 내용은 주로 고려대학교 강필성 교수님의 Business Analytics 강의 내용 및 강의 슬라이드와 [Machine Learning Mastery](https://machinelearningmastery.com/bagging-and-random-forest-ensemble-algorithms-for-machine-learning/)라는 블로그 내용을 바탕으로 작성되었습니다. 이외에도 다른 곳에서 참고한 부분은 주석으로 정리해두었습니다. 
-$f(x) = x^2$
+
 <hr>
 
 ### 1. Why Bagging? 
@@ -98,7 +98,7 @@ Bootstrapping은 데이터셋(training set) 내의 데이터 분포가 고르지
 다른 예를 통해서 Bootstrap이 실제로 어떻게 진행되는 지 확인해보겠습니다. 우리에게 1000개의 숫자값이 있는 모집단에서 100개의 숫자값(X라고 하겠습니다)이 들어있는 샘플을 뽑았다고 가정해보겠습니다. 그리고 이 숫자들을 이용해서 모집단의 평균을 구하고자 합니다. <br>
 물론 모집단의 평균을 다음과 같은 식으로 계산할 수도 있습니다:
 
-mean(x) = 1/100 * sum(x)
+$$ mean_X = \( \sum_{t=1}^{T}\beta_{t} \) $$
 
 그러나 조금만 생각해봐도 이 방식의 연산은 샘플이 가지고 있는 오류를 그대로 담고 있다는 것을 알고 있습니다. Bootstrap을 이용하면 다음과 같은 방식으로 모집단의 평균을 연산하게 됩니다:
 
@@ -118,11 +118,11 @@ Bootstrapping에서 핵심은 Bootstrap이라는 Orignal Dataset에서 뽑은 �
 
 결과값을 결합하는 방법에는 여러 가지가 있지만 여기에서는 대표적인 3가지의 결합 방법을 설명하도록 하겠습니다.
 
-__* Majority Voting__
+* Majority Voting
 
-__* Weighted Voting (weight: training accuracy of individual models)__
+* Weighted Voting (weight: training accuracy of individual models)
 
-__* Majority Voting (weight: predicted probability of each class)__
+* Majority Voting (weight: predicted probability of each class)
 
 <hr>
 ### Bagging in Marketing Research
