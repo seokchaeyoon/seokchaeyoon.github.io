@@ -51,9 +51,19 @@ Ensemble 학습은 이 명제와 매우 비슷한 intuition을 가지고 있습�
 > 일단은, Ensemble!
 
 #### ***Then, why does Ensemble work well?***
+$$ y={ F }^{ * }(\Chi )+\epsilon ,\quad \epsilon \sim N(0,{ \sigma  }^{ 2 }) $$
 
+$$ \bar { F } (X)=E\left[ { \hat { F }  }_{ D }(X) \right]  $$
 
+$$ Err({ X }_{ 0 })=E{ \left[ y-\hat { F } (X)|X={ X }_{ 0 } \right]  }^{ 2 } $$
+$$  =E{ \left[ { F }^{ * }({ X }_{ 0 })+\epsilon -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }  $$
+$$  =E{ \left[ { F }^{ * }({ X }_{ 0 })-\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$
+$$  =E{ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right) +\bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$
 
+$$  =E{ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right)  \right]  }^{ 2 }+E{ \left[ \bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$
+$$ \because \quad 2E\left[ { F }^{ * }({ X }_{ 0 })-\bar { F } ({ X }_{ 0 }) \right] \cdot E\left[ \bar { F } ({ X }_{ 0 })-\hat { F } ({ X }_{ 0 }) \right] =0 $$
+$$  ={ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right)  \right]  }^{ 2 }+E{ \left[ \bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$
+$$  { Bias }^{ 2 }(\hat { F } ({ X }_{ 0 }))+Var(\hat { F } ({ X }_{ 0 }))+{ \sigma  }^{ 2 }  $$
 
 ### 3. Issues in Bagging
 
