@@ -111,11 +111,11 @@ Bootstrapping에서 핵심은 Bootstrap이라는 Orignal Dataset에서 뽑은 �
 
 결과값을 결합하는 방법에는 여러 가지가 있지만 여기에서는 대표적인 3가지의 결합 방법을 설명하도록 하겠습니다.
 
-##### * **Majority Voting**
+##### * __Majority Voting__
 
-##### * **Weighted Voting (weight: training accuracy of individual models)**
+##### * __Weighted Voting (weight: training accuracy of individual models)__
 
-##### * **Majority Voting (weight: predicted probability of each class)**
+##### * __Majority Voting (weight: predicted probability of each class)__
 <hr>
 ### Bagging in Marketing Research
 
