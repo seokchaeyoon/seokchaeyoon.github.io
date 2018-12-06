@@ -2,8 +2,7 @@
 layout: default
 ---
 
-## Bagging 알고리즘은 정제되지 않은 것에서
-## 세련된 것을 만들어 내는 방법이다. (Breiman 1996)
+## Bagging 알고리즘은 정제되지 않은 것에서 <br> 세련된 것을 만들어 내는 방법이다. (Breiman 1996)
 
 해당 포스트에서는 Ensemble 학습의 대표적인 방법 중의 하나인 Bagging에 대해 소개하겠습니다. 고려대학교 강필성 교수님의 Business Analytics 강의 내용 및 강의 슬라이드와, 처음 Bagging이라는 알고리즘을 소개한 Leo Breiman 교수가 Machine Learning 저널에 1996년에 퍼블리시한 논문을 바탕으로 작성되었습니다.
 
