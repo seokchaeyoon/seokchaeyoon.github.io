@@ -48,7 +48,7 @@ Ensemble 학습은 이 명제와 매우 비슷한 intuition을 가지고 있습�
 <img src="images/ensemble_result.PNG" alt="ensmeble_result">
 위 이미지에서 각각의 그래프는 5개의 알고리즘의 결과를 결합하였을 때(Ensemble 학습)의 결과를 보여주고 있습니다. 어떻게 결합했느냐에 따라서 약간의 차이는 존재할 수 있지만, 한 가지 확실한 것은 4가지 결합 방식의 결과 모두가 개별적인 알고리즘으로 학습했을 때보다 더 좋은 performance를 보였는 사실입니다. 이를 통해서 우리는 경험적으로 Ensemble 학습을 했을 때 개별 알고리즘 보다 더 좋은 performance를 낼 수 있다는 것을 확인할 수 있습니다. 따라서 위의 질문에 대해서는 다음과 같은 답을 내릴 수 있습니다. 
 
-> 일단은, Ensemble!
+> 뭐가 최적인지 모르겠다면 , Ensemble!
 
 #### ***Then, why does Ensemble work well?***
 $$ y={ F }^{ * }(X)+\epsilon ,\quad \epsilon \sim N(0,{ \sigma  }^{ 2 }) $$
@@ -141,8 +141,8 @@ $$  \frac { \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right) \cdot \delta \l
 $$  { \hat { y }  }_{ Ensemble }\ =\ 1 $$ 
 * Majority Voting (weight: predicted probability of each class)
 $$ { \hat { y }  }_{ Ensemble }=arg\max _{ i }{ \left( \frac { 1 }{ n } \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } ,i\in \{ 0,\ 1\}  \right)  }   $$
-$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=0 \right)  } =0.375  $$
-$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$
+$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=0 \right)  } =0.375  $$ <br>
+$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$ <br>
 $$ { \hat { y }  }_{ Ensemble }\ =\ 1  $$
 <hr>
 ### Bagging in Marketing Research
