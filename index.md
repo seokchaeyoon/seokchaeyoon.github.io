@@ -1,5 +1,12 @@
 ---
 layout: default
+title: "Ensemble: Bagging"
+tags:
+  - Blog
+  - MathJax
+  - Jekyll
+  - LaTeX
+use_math: true
 ---
 
 ## *“Bagging predictors is a method for generating multiple versions of a predictor and using these to get an aggregated predictor.”* (Breiman 1996)[^1]
