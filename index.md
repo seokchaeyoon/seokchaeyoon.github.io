@@ -8,7 +8,8 @@ layout: default
 
 <hr>
 
-### Why do Bagging? High Variance Problem!
+### Why do Bagging? 
+### High Variance Problem!
 
 여러 Classificaiton 알고리즘 중에서도 Decision Tree는 그 결과를 이해하기 쉽다는 측면 때문에 기계학습을 전공하는 사람들 뿐만 아니라 비전공자들도 애용하는 알고리즘입니다. 그러나 이러한 유용성에도 불구하고 Decision Tree는 한 가지 큰 단점을 가지고 있습니다. 그것은 다른 경쟁 알고리즘 (예. 로지스틱 회귀 분석, k-NN)에 비해서 분산값이 높게 나옵니다. 분산값이 높게 나온다는 것은 쉽게 말하자면, 학습 모델의 input 데이터의 값이 살짝 달라져도 Tree가 매우 다른 모양으로 만들어지고 이에 따라서 결과적으로 매우 다른 분류 기준이 만들어진다는 뜻입니다. 다른 말로 표현하자면 Decision Tree는 overfitting의 문제가 늘 존재한다고 말할 수 있겠습니다. 
 
