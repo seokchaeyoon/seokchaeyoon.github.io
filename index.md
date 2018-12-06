@@ -123,7 +123,13 @@ Bootstrapping에서 핵심은 Bootstrap이라는 Orignal Dataset에서 뽑은 �
 
 <hr>
 ### Bagging using Python Code
+## Code block
 
+```python
+def func(x):
+    print('hello, world')
+    print('this is a really long statements, this is a really long statementsi, this is a really long statements')
+```
 
 
 
@@ -210,15 +216,6 @@ Ordered list
 1.  I am the first ordered list item
 1.  I am the second ordered list item
 1.  I contain an `inline code`
-
-
-## Code block
-
-```python
-def func(x):
-    print('hello, world')
-    print('this is a really long statements, this is a really long statementsi, this is a really long statements')
-```
 
 ## Inline code
 
