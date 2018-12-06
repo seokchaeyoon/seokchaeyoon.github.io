@@ -130,10 +130,10 @@ $$ \frac { \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right) \cdot \delta \le
 $$  \frac { \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 1 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { TrnAcc }_{ j } \right)  }  } =0.576 $$ <br>
 $$  { \hat { y }  }_{ Ensemble }\ =\ 1 $$ 
 * Majority Voting (weight: predicted probability of each class)
-$$   $$
-$$   $$
-$$   $$
-$$   $$
+$$ { \hat { y }  }_{ Ensemble }=arg\max _{ i }{ \left( \frac { 1 }{ n } \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } ,i\in \{ 0,\ 1\}  \right)  }   $$
+$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=0 \right)  } =0.375  $$
+$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$
+$$ { \hat { y }  }_{ Ensemble }\ =\ 1  $$
 <hr>
 ### Bagging in Marketing Research
 
