@@ -48,7 +48,7 @@ Ensemble 학습은 이 명제와 매우 비슷한 intuition을 가지고 있습�
 
 
 
-### 3. Sampling without Replacement
+### 3. Issues in Bagging
 
 본격적으로 Bagging에 대해서 논하기 전에, 먼저 Leon Breiman 교수님이 본인의 1996년 Machine Learning 저널에서 쓴 Bagging에 대한 정의(제가 이 포스트 맨 위에 쓴 영어 문장)를 살펴보겠습니다.
 
@@ -56,15 +56,20 @@ Ensemble 학습은 이 명제와 매우 비슷한 intuition을 가지고 있습�
 
 이 정의를 살펴보는 이유는 이 정의가 Bagging과 관련된 중요한 이슈 2가지를 잘 담고 있기 때문입니다. 그 이슈들을 다음과 같습니다.
 
-1. 어떻게 ***다양한*** 예측기를 생성할 것인가?
-1. 이 예측기들을 ***어떻게 결합***할 것인가?
+1. Ensemble 시스템의 개별 구성요소인 base classifier의 다양성을 어떻게 확보할까? (어떻게 ***다양한*** 예측기를 생성할 것인가?)
+1. 개별 분류기의 결과물을 어떻게 통합할 것인가? (이 예측기들을 ***어떻게 결합***할 것인가?)
+
+이를 그림으로 표현하자면 다음과 같이 표현할 수 있을 것입니다.
+<img src="images/diagram1.PNG" alt="diagram1">
+위 그림에서 윗 부분에 있는 빨간 점선 안의 부분은 첫번째 이슈인 base classifier의 다양성 확보의 문제를 담고 있습니다. 만약, 각각의 Subset 간의 correlation이 크다면 다양성을 확보할 수가 없을 것입니다. 따라서 Subset의 개별성을 확보할 수 있는 systematic sampling method가 매우 중요하다고 할 수 있습니다. Bootstrap이라는 samping 방법을 사용하기 전, 가능 단순한 sampling 방법은 "*K-fold data split*"이었습니다. 이 방법에 대해서는 아래에서 설명하도록 하겠습니다.
+
+아랫 부분의 빨간 점선 안의 부분은 두번째 이슈인 결과물의 통합에 대한 문제를 담고 있습니다. 이 결합 방법은 단순한 평균부터, 가중 평균 등 다양한 방법이 존재합니다. 
+
+### 4. K-fold Data Split
 
 
 
-
-
-
-### 4. Bootstraping Aggregation
+### 5. Bootstraping Aggregation
 
 <hr>
 ### Bagging in Marketing Research
