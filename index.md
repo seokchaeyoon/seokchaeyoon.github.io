@@ -2,9 +2,9 @@
 layout: default
 ---
 
-## *“Bagging predictors is a method for generating multiple versions of a predictor and using these to get an aggregated predictor.”* (Breiman 1996)
+## *“Bagging predictors is a method for generating multiple versions of a predictor and using these to get an aggregated predictor.”* (Breiman 1996)[^1]
 
-해당 포스트는 Ensemble 학습의 대표적인 방법 중의 하나인 Bagging에 대해 소개하고 있습니다. 포스트의 내용은 주로 고려대학교 강필성 교수님의 Business Analytics 강의 내용 및 강의 슬라이드와, 처음 Bagging이라는 알고리즘을 소개한 Leo Breiman 교수님이 Machine Learning 저널에 1996년에 퍼블리시한 논문을 바탕으로 작성되었습니다. 이외에도 다른 곳에서 참고한 부분은 주석으로 정리해두었습니다. 
+해당 포스트는 Ensemble 학습의 대표적인 방법 중의 하나인 Bagging에 대해 소개하고 있습니다. 포스트의 내용은 주로 고려대학교 강필성 교수님의 Business Analytics 강의 내용 및 강의 슬라이드와 [Machine Learning Mastery](https://machinelearningmastery.com/bagging-and-random-forest-ensemble-algorithms-for-machine-learning/)라는 블로그 내용을 바탕으로 작성되었습니다. 이외에도 다른 곳에서 참고한 부분은 주석으로 정리해두었습니다. 
 
 <hr>
 
@@ -80,6 +80,7 @@ K-fold data split은 우선 전체 Dataset을 랜덤으로 K개의 블록으로 
 
 ### 5. Bootstraping Aggregation
 
+그렇다면, 우리의 논의에 중심에 있는 Bagging은 어떻게 **다양성**을 확보할 수 있을까요. 그 해답은 Bootstrap이라는 sampling 방식으로부터 옵니다.
 
 
 <hr>
@@ -101,7 +102,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ### With footnotes too!
 
-Back up your stuff with solid, clean citations. Footnotes can be written in markdown and appear like this.[^1] Use as many as you like.[^2]
+Back up your stuff with solid, clean citations. Footnotes can be written in markdown and appear like this. Use as many as you like.[^2]
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
@@ -145,18 +146,6 @@ Images play nicely with this template as well. Add diagrams or charts to make yo
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Thanks to [Shu Uesengi](https://github.com/chibicode) for inspiring and providing the base for this template with his excellent work, [solo](https://github.com/chibicode).
-
-<hr>
-
-##### Footnotes:
-
-[^1]: This is a footnote. Click to return.
-
-[^2]: Here is another.
-
-This post shows all customized elements.
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-
 
 ## Image
 
@@ -210,3 +199,16 @@ Ut enim ad minima veniam, `quis` nostrum exercitationem ullam corporis suscipit 
 ## Paragraph
 
 Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo.
+
+<hr>
+
+##### Footnotes:
+
+[^1]: Breiman, Leo (1996). "Bagging predictors". Machine Learning. 24 (2): 123–140.
+
+[^2]: Here is another.
+
+This post shows all customized elements.
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+
