@@ -2,9 +2,9 @@
 layout: default
 ---
 
-## Bagging goes a ways toward making a silk purse out of a sow’s ear. (Breiman 1996)
+## “Bagging predictors is a method for generating multiple versions of a predictor and using these to get an aggregated predictor.” (Breiman 1996)
 
-해당 포스트에서는 Ensemble 학습의 대표적인 방법 중의 하나인 Bagging에 대해 소개하겠습니다. 고려대학교 강필성 교수님의 Business Analytics 강의 내용 및 강의 슬라이드와, 처음 Bagging이라는 알고리즘을 소개한 Leo Breiman 교수가 Machine Learning 저널에 1996년에 퍼블리시한 논문을 바탕으로 작성되었습니다.
+해당 포스트에서는 Ensemble 학습의 대표적인 방법 중의 하나인 Bagging에 대해 소개하겠습니다. 고려대학교 강필성 교수님의 Business Analytics 강의 내용 및 강의 슬라이드와, 처음 Bagging이라는 알고리즘을 소개한 Leo Breiman 교수님이 Machine Learning 저널에 1996년에 퍼블리시한 논문을 바탕으로 작성되었습니다.
 
 <hr>
 
