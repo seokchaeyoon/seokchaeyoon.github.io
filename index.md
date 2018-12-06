@@ -91,7 +91,6 @@ Bootstrapping은 데이터셋(training set) 내의 데이터 분포가 고르지
 다른 예를 통해서 Bootstrap이 실제로 어떻게 진행되는 지 확인해보겠습니다. 우리에게 1000개의 숫자값이 있는 모집단에서 100개의 숫자값(X라고 하겠습니다)이 들어있는 샘플을 뽑았다고 가정해보겠습니다. 그리고 이 숫자들을 이용해서 모집단의 평균을 구하고자 합니다. <br>
 물론 모집단의 평균을 다음과 같은 식으로 계산할 수도 있습니다:
 
-<img src="meanfunction.PNG" alt="meanfunction">
 mean(x) = 1/100 * sum(x)
 
 그러나 조금만 생각해봐도 이 방식의 연산은 샘플이 가지고 있는 오류를 그대로 담고 있다는 것을 알고 있습니다. Bootstrap을 이용하면 다음과 같은 방식으로 모집단의 평균을 연산하게 됩니다:
@@ -112,11 +111,12 @@ Bootstrapping에서 핵심은 Bootstrap이라는 Orignal Dataset에서 뽑은 �
 
 결과값을 결합하는 방법에는 여러 가지가 있지만 여기에서는 대표적인 3가지의 결합 방법을 설명하도록 하겠습니다.
 
-* Majority Voting
+__* Majority Voting__
 
-* Weighted Voting (weight: training accuracy of individual models)
+__* Weighted Voting (weight: training accuracy of individual models)__
 
-* Majority Voting (weight: predicted probability of each class)
+__* Majority Voting (weight: predicted probability of each class)__
+
 <hr>
 ### Bagging in Marketing Research
 
