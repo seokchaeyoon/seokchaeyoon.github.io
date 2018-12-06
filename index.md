@@ -105,17 +105,17 @@ Bagging 알고리즘을 적용하기 위한 Bootstrapping은 다음과 같이 �
 
 Bootstrapping에서 핵심은 Bootstrap이라는 Orignal Dataset에서 뽑은 샘플을 만드는 데에 있습니다. 만일 Original Data에 N개의 관찰값이 존재한다면, 그 N개의 관찰값 중 중복을 허용하여서 다시 N개의 값을 뽑아서 하나의 Bootstrap을 만듭니다. 위의 이미지를 보면, Original Dataset에 10개의 관찰값이 존재합니다. 중복을 허용하여서 랜덤 샘플링을 하면 Bootstrap 1, Bootstrap 2, ... , Bootstrap B (총 B개의 Bootstrap을 만든다고 가정할 때)을 만들 수 있습니다. 그리고 각각의 Bootstrap에는 Original Dataset과는 다르게 같은 관찰값이 여러 번 나온다는 것을 확인할 수 있습니다.
 
-### ***Result Aggregating***
+#### ***Result Aggregating***
 <img src="images/diagram3.PNG" alt="diagram3">
 앞에서 설명한 대로 B개의 Bootstrap을 만들고 나면, Model complexity가 높은(Low Bias & High Variance) base classifier를 통해 학습을 하게 됩니다. 그 이후에는 base classifier를 통해서 학습한 결과를 어떻게 결합할 것인지의 문제가 남아 있습니다. 
 
 결과값을 결합하는 방법에는 여러 가지가 있지만 여기에서는 대표적인 3가지의 결합 방법을 설명하도록 하겠습니다.
 
-#### **Majority Voting**
+##### * **Majority Voting**
 
-#### **Weighted Voting (weight: training accuracy of individual models)**
+##### * **Weighted Voting (weight: training accuracy of individual models)**
 
-#### **Majority Voting (weight: predicted probability of each class)**
+##### * **Majority Voting (weight: predicted probability of each class)**
 <hr>
 ### Bagging in Marketing Research
 
