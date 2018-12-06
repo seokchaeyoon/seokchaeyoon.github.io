@@ -9,5 +9,9 @@ font-awesome-include: true # make this false if you don't need font-awesome
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
 
 exclude: ["README.md"]
