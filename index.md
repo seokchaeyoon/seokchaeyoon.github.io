@@ -4,13 +4,13 @@ layout: default
 
 ## “Bagging predictors is a method for generating multiple versions of a predictor and using these to get an aggregated predictor.” (Breiman 1996)
 
-해당 포스트에서는 Ensemble 학습의 대표적인 방법 중의 하나인 Bagging에 대해 소개하겠습니다. 고려대학교 강필성 교수님의 Business Analytics 강의 내용 및 강의 슬라이드와, 처음 Bagging이라는 알고리즘을 소개한 Leo Breiman 교수님이 Machine Learning 저널에 1996년에 퍼블리시한 논문을 바탕으로 작성되었습니다.
+해당 포스트에서는 Ensemble 학습의 대표적인 방법 중의 하나인 Bagging에 대해 소개하겠습니다. 포스트의 내용은 주로 고려대학교 강필성 교수님의 Business Analytics 강의 내용 및 강의 슬라이드와, 처음 Bagging이라는 알고리즘을 소개한 Leo Breiman 교수님이 Machine Learning 저널에 1996년에 퍼블리시한 논문을 바탕으로 작성되었습니다. 이외에도 다른 곳에서 참고한 부분은 주석으로 정리해두었습니다. 
 
 <hr>
 
 ### High Variance Problem
 
-이거 한글도 되는 건가? 한글 안 되면 안 되는데.... Good clean read is set up with readability first in mind. Whatever you want to communicate here can be read easily, and without distraction. Of course, it's fully responsive, which means people can read it naturally on any phone, or tablet. Write it in markdown in <code>index.md</code> and get a beautifully published piece.
+여러 Classificaiton 알고리즘 중에서도 Decision Tree는 그 결과를 이해하기 쉽다는 측면 때문에 기계학습을 전공하는 사람들 뿐만 아니라 비전공자들도 애용하는 알고리즘 중에 하나입니다. 그러나 이러한 유용성에도 불구하고 Decision Tree는 한 가지 큰 단점을 가지고 있습니다. 그것은 예측 정확성(Prediction Accuracy) 다른 경쟁 알고리즘 (예. 이거 한글도 되는 건가? 한글 안 되면 안 되는데.... Good clean read is set up with readability first in mind. Whatever you want to communicate here can be read easily, and without distraction. Of course, it's fully responsive, which means people can read it naturally on any phone, or tablet. Write it in markdown in <code>index.md</code> and get a beautifully published piece.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
