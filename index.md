@@ -8,7 +8,7 @@ layout: default
 
 <hr>
 
-## 1. Why do Bagging? 
+### 1. Why do Bagging? 
 
 여러 Classificaiton 알고리즘 중에서도 Decision Tree는 그 결과를 이해하기 쉽다는 측면 때문에 기계학습을 전공하는 사람들 뿐만 아니라 비전공자들도 애용하는 알고리즘입니다. 그러나 이러한 유용성에도 불구하고 Decision Tree는 한 가지 큰 단점을 가지고 있습니다. 그것은 다른 경쟁 알고리즘 (예. 로지스틱 회귀 분석, k-NN)에 비해서 분산값이 높게 나옵니다. 
 
@@ -18,21 +18,26 @@ layout: default
 
 본격적으로 Bagging 알고리즘에 대해서 살펴보기 전에 우선 Ensemble 학습에 대해서 살펴보고 Bagging 알고리즘을 통해서 얻을 수 있는 효과가 무엇인지 한번 더 짚어보도록 하겠습니다. 
 
-## 2. Ensemble Learning
+### 2. Ensemble Learning
+
+장님 코끼리 만지기라는 우화를 모두들 들어보셨을 겁니다. 각자 자기가 본 것이 전부라고 주장하는 우매함을 꾸짖는 교훈적인 우화인데, 이를 반대로 적용하면 이렇게 말할 수도 있을 겁니다.
+
+> 수많은 장님들이 각각 본 것들을 모두 합치면 코끼리에 매우 가까운 모양을 추론할 수 있겠구나.
 
 
 
-## 3. Before Bootstrap: Sampling without Replacement
+
+### 3. Sampling without Replacement
 
 
-## 4. Bootstraping Aggregation
+### 4. Bootstraping Aggregation
 
 <hr>
-## Bagging in Marketing Research
+### Bagging in Marketing Research
 
 
 <hr>
-## Bagging using Python Code
+### Bagging using Python Code
 
 
 
