@@ -52,9 +52,14 @@ Ensemble 학습은 이 명제와 매우 비슷한 intuition을 가지고 있습�
 
 본격적으로 Bagging에 대해서 논하기 전에, 먼저 Leon Breiman 교수님이 본인의 1996년 Machine Learning 저널에서 쓴 Bagging에 대한 정의(제가 이 포스트 맨 위에 쓴 영어 문장)를 살펴보겠습니다.
 
-> ***"Bagging은 여러 버전의 예측기(predictor)를 생성하고 이 예측기들이 결합된 하나의 예측기(an aggregated predictor)를 이용하기 위한 방법이다."***
+> ***"Bagging은 여러 버전의 예측기(predictor)를 생성하고 이 예측기들을 결합한 예측기(an aggregated predictor)를 이용하기 위한 방법이다."***
 
 이 정의를 살펴보는 이유는 이 정의가 Bagging과 관련된 중요한 이슈 2가지를 잘 담고 있기 때문입니다. 그 이슈들을 다음과 같습니다.
+
+1. 어떻게 ***다양한*** 예측기를 생성할 것인가?
+1. 이 예측기들을 ***어떻게 결합***할 것인가?
+
+
 
 
 
