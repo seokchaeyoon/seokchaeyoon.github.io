@@ -2,7 +2,8 @@
 layout: default
 ---
 
-## A Jekyll template for publishing single-page websites and articles that are incredibly readable and fully responsive
+## Bagging goes a ways toward making a silk purse out of a sow’s ear. (Brieman 1996)
+## Bagging은 정재되지 않은 재료에서 매우 세련된 것을 만드는 방법이다. 
 
 ### Nice, clean, reading!
 
