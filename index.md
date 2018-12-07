@@ -284,4 +284,4 @@ $$ E_{ (x,y) }\left\{ { E }_{ L }{ f }^{ 2 }(x,L)-{ ({ E }_{ L }f(x,L) }^{ 2 } \
 
 [^2]: [Learning Carrot 블로그](https://learningcarrot.wordpress.com/2015/11/12/%EB%B6%80%ED%8A%B8%EC%8A%A4%ED%8A%B8%EB%9E%A9%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC-bootstrapping/)
 
-[^3]: 노준혁 (2012). "앙상블 기법을 이용한 고객의 재 구매 예측"
+[^3]: Breiman, Leo (1996). "Bagging predictors". Machine Learning. 24 (2): 123–140.
