@@ -65,6 +65,21 @@ $$ \because \quad 2E\left[ { F }^{ * }({ X }_{ 0 })-\bar { F } ({ X }_{ 0 }) \ri
 $$  ={ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right)  \right]  }^{ 2 }+E{ \left[ \bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$
 $$  ={ Bias }^{ 2 }(\hat { F } ({ X }_{ 0 }))+Var(\hat { F } ({ X }_{ 0 }))+{ \sigma  }^{ 2 }  $$
 
+
+$$ { y }_{ m }=f(X)+{ \epsilon  }_{ m }(X) $$
+$$ { E }_{ X }\left[ { \left\{ { y }_{ m }(X)-f(X) \right\}  }^{ 2 } \right] ={ E }_{ X }\left[ { { \epsilon  }_{ m }(X) }^{ 2 } \right]    $$ 
+$$ { E }_{ Avg }=\frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { E }_{ X }[{ \epsilon  }_{ m }{ (X) }^{ 2 }] } $$
+$$  { E }_{ Ensemble }={ E }_{ X }\left[ { \left\{ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ ({ y }_{ m }(X)-f(X)) }  \right\}  }^{ 2 } \right] $$
+$$   { E }_{ Ensemble }={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } { \left\{ \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m } } (X) \right\}  }^{ 2 } \right]    $$
+$$   { E }_{ Ensemble }={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } \left\{ { { \epsilon  }_{ 1 } }^{ 2 }(X)+{ { \epsilon  }_{ 2 } }^{ 2 }(X)+\cdots +{ { \epsilon  }_{ M } }^{ 2 }(X)+\sum _{ i=1 }^{ M }{ \sum _{ j\neq i }^{ M }{ { \epsilon  }_{ i }(X){ \epsilon  }_{ j }(X) }  }  \right\}  \right]    $$
+
+$$  { E }_{ X }\left[ { \epsilon  }_{ m }(X) \right] =0  $$
+$$  { E }_{ X }\left[ { \epsilon  }_{ m }(X){ \epsilon  }_{ l }(X) \right] =0\quad (m\neq l)  $$
+$$  { E }_{ Ensemble }=\frac { 1 }{ M } { E }_{ Avg   $$
+$$  { \left[ \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m } } (X) \right]  }^{ 2 }\le M\sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } } \le { \left[ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m }(X) }  \right]  }^{ 2 }\le \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } }   $$
+$$  { E }_{ Ensemble }\le { E }_{ Avg }  $$
+
+
 ### 3. Issues in Bagging
 
 본격적으로 Bagging에 대해서 논하기 전에, 먼저 Leon Breiman 교수님이 본인의 1996년 Machine Learning 저널에서 쓴 Bagging에 대한 정의(제가 이 포스트 맨 위에 쓴 영어 문장)를 살펴보겠습니다.
