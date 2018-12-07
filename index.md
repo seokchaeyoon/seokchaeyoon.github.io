@@ -257,9 +257,11 @@ Ut enim ad minima veniam, `quis` nostrum exercitationem ullam corporis suscipit 
 
 <hr>
 
-##### Appendix: How Bagging works better?
-왜 배깅이 예측력을 크게 향상시킬 수 있을까요. 주어진 훈련자료 $$\L $$을 이용하여 구축된 예측모형 $$\hat { f } (x)$$는 $$\L $$에 의존합니다. 이를 강조하기 위해서 $$\hat { f } (x)=f(x,\L )$$라고 쓰겠습니다.
-그리고 주어진 예측모형 $$f(x,\L )$$에 대하여 평균 예측모형  $${f}_{ Avg }(x)$$를 $${ f }_{ Avg }(x)={ E }_{ \L  }f(x,\quad \L )$$이라고 정의하겠습니다. 여기서 기댓값은 훈련자료가 얻어진 **모집단의 분포**를 이용하여 구한다는 점에 유의해야 합니다. 다음의 증명은 평균예측모형의 기대손실이 단일 예측모형의 기대손실보다 항상 작다는 것을 보여준다.
+##### Appendix: How Bagging works better?[^3]
+왜 배깅이 예측력을 크게 향상시킬 수 있을까요. 주어진 훈련자료 $$L $$을 이용하여 구축된 예측모형 $$\hat { f } (x)$$는 $$L $$에 의존합니다. 이를 강조하기 위해서 $$\hat { f } (x)=f(x,L )$$라고 쓰겠습니다.
+그리고 주어진 예측모형 $$f(x,L )$$에 대하여 평균 예측모형  $${f}_{ Avg }(x)$$를 $${ f }_{ Avg }(x)={ E }_{ L  }f(x,\quad L )$$이라고 정의하겠습니다. 여기서 기댓값은 훈련자료가 얻어진 **모집단의 분포**를 이용하여 구한다는 점에 유의해야 합니다. 다음의 증명은 평균예측모형의 기대손실이 단일 예측모형의 기대손실보다 항상 작다는 것을 보여줍니다.
+
+
 
 
 <hr>
@@ -269,3 +271,5 @@ Ut enim ad minima veniam, `quis` nostrum exercitationem ullam corporis suscipit 
 [^1]: Breiman, Leo (1996). "Bagging predictors". Machine Learning. 24 (2): 123–140.
 
 [^2]: [Learning Carrot 블로그](https://learningcarrot.wordpress.com/2015/11/12/%EB%B6%80%ED%8A%B8%EC%8A%A4%ED%8A%B8%EB%9E%A9%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC-bootstrapping/)
+
+[^3]: 노준혁 (2012). "앙상블 기법을 이용한 고객의 재 구매 예측"
