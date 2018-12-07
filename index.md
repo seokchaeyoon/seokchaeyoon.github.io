@@ -75,7 +75,7 @@ $$   { E }_{ Ensemble }={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } \left\{ { {
 
 $$  { E }_{ X }\left[ { \epsilon  }_{ m }(X) \right] =0  $$
 $$  { E }_{ X }\left[ { \epsilon  }_{ m }(X){ \epsilon  }_{ l }(X) \right] =0\quad (m\neq l)  $$
-$$  { E }_{ Ensemble }=\frac { 1 }{ M } { E }_{ Avg   $$
+$$  { E }_{ Ensemble }=\frac { 1 }{ M } { E }_{ Avg }   $$
 $$  { \left[ \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m } } (X) \right]  }^{ 2 }\le M\sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } } \le { \left[ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m }(X) }  \right]  }^{ 2 }\le \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } }   $$
 $$  { E }_{ Ensemble }\le { E }_{ Avg }  $$
 
