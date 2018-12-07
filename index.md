@@ -167,11 +167,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 > "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-### With footnotes too!
-
-Back up your stuff with solid, clean citations. Footnotes can be written in markdown and appear like this. Use as many as you like.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 ### Add social sharing buttons
 
@@ -219,16 +214,6 @@ Thanks to [Shu Uesengi](https://github.com/chibicode) for inspiring and providin
 ![Placeholder](https://via.placeholder.com/768x480)
 
 
-## Header
-
-# Head 1
-## Head 2
-### Head 3
-#### Head 4
-##### Head 5
-###### Head 6
-
-
 ## Lists
 
 Unordered list
@@ -254,9 +239,10 @@ Ut enim ad minima veniam, `quis` nostrum exercitationem ullam corporis suscipit 
 > Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
 
 
-## Paragraph
 
-Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo.
+<hr>
+
+##### Appendix: How Bagging works better?
 
 <hr>
 
