@@ -66,13 +66,13 @@ Ensenble 학습이 왜 단일 알고리즘보다 더 좋은 performance를 보�
 <div style="text-align:center">$$ \bar { F } (X)=E\left[ { \hat { F }  }_{ D }(X) \right]  $$</div>
 
 그 때, 어떤 $${ X }_{ 0 }$$라는 데이터에 대해서 정답(true y)과 추정된 y값($$\hat { F } (X)$$) 사이의 차이를 계산해 보면 아래와 같이 정리할 수 있습니다.
-$$ Err({ X }_{ 0 })=E{ \left[ y-\hat { F } (X)|X={ X }_{ 0 } \right]  }^{ 2 } $$
-$$  =E{ \left[ { F }^{ * }({ X }_{ 0 })+\epsilon -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }  $$
-$$  =E{ \left[ { F }^{ * }({ X }_{ 0 })-\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$
-$$  =E{ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right) +\bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$
-$$  =E{ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right)  \right]  }^{ 2 }+E{ \left[ \bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$ <br>
-($$ \because 2E\left[ { F }^{ * }({ X }_{ 0 })-\bar { F } ({ X }_{ 0 }) \right] \cdot E\left[ \bar { F } ({ X }_{ 0 })-\hat { F } ({ X }_{ 0 }) \right] =0 $$)
-$$  ={ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right)  \right]  }^{ 2 }+E{ \left[ \bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$
+$$ Err({ X }_{ 0 })=E{ \left[ y-\hat { F } (X)|X={ X }_{ 0 } \right]  }^{ 2 } $$ <br>
+&nbsp;&nbsp; $$=E{ \left[ { F }^{ * }({ X }_{ 0 })+\epsilon -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }  $$ <br>
+&nbsp;&nbsp; $$=E{ \left[ { F }^{ * }({ X }_{ 0 })-\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$ <br>
+&nbsp;&nbsp; $$=E{ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right) +\bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$ <br>
+&nbsp;&nbsp; $$=E{ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right)  \right]  }^{ 2 }+E{ \left[ \bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$ <br>
+&nbsp;&nbsp; ($$ \because 2E\left[ { F }^{ * }({ X }_{ 0 })-\bar { F } ({ X }_{ 0 }) \right] \cdot E\left[ \bar { F } ({ X }_{ 0 })-\hat { F } ({ X }_{ 0 }) \right] =0 $$) <br>
+&nbsp;&nbsp; $$={ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right)  \right]  }^{ 2 }+E{ \left[ \bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 } $$
 
 위에 식으로 정리된 내용을 말로 정리해 보자면, 실제 데이터 포인트에서 실제값과 추정값 간의 차이($$Err({ X }_{ 0 })$$)는 다음의 세 부분으로 분해가 됩니다.
 * Original 기저함수를 이용해서 만든 값($${ F }^{ * }({ X }_{ 0 })$$)과 반복적으로 추정을 했을 때의 평균값($$\bar { F } ({ X }_{ 0 })$$) 사이의 차이(Bias)의 제곱
