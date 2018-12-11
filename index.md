@@ -71,7 +71,7 @@ $$ Err({ X }_{ 0 })=E{ \left[ y-\hat { F } (X)|X={ X }_{ 0 } \right]  }^{ 2 } $$
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $$=E{ \left[ { F }^{ * }({ X }_{ 0 })-\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$ <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $$=E{ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right) +\bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$ <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $$=E{ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right)  \right]  }^{ 2 }+E{ \left[ \bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 }  $$ <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ($$ \because 2E\left[ { F }^{ * }({ X }_{ 0 })-\bar { F } ({ X }_{ 0 }) \right] \cdot E\left[ \bar { F } ({ X }_{ 0 })-\hat { F } ({ X }_{ 0 }) \right] =0 $$) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ($$ \because 2E\left[ { F }^{ * }({ X }_{ 0 })-\bar { F } ({ X }_{ 0 }) \right] \cdot E\left[ \bar { F } ({ X }_{ 0 })-\hat { F } ({ X }_{ 0 }) \right] =0 $$) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $$={ \left[ { F }^{ * }({ X }_{ 0 })-\bar { F } \left( { X }_{ 0 } \right)  \right]  }^{ 2 }+E{ \left[ \bar { F } \left( { X }_{ 0 } \right) -\hat { F } ({ X }_{ 0 }) \right]  }^{ 2 }+{ \sigma  }^{ 2 } $$
 
 위에 식으로 정리된 내용을 말로 정리해 보자면, 실제 데이터 포인트에서 실제값과 추정값 간의 차이($$Err({ X }_{ 0 })$$)는 다음의 세 부분으로 분해가 됩니다.
@@ -98,7 +98,7 @@ $$ { E }_{ X }\left[ { \left\{ { y }_{ m }(X)-f(X) \right\}  }^{ 2 } \right] ={ 
 <div style="text-align:center">$$ { E }_{ Avg }=\frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { E }_{ X }[{ \epsilon  }_{ m }{ (X) }^{ 2 }] } $$</div>
 
 그러나 앙상블 학습을 통해서 얻어지는 기대 error값의 제곱은 다음과 같습니다. <br>
-$$  { E }_{ Ensemble }={ E }_{ X }\left[ { \left\{ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ ({ y }_{ m }(X)-f(X)) }  \right\}  }^{ 2 } \right] $$
+$$  { E }_{ Ensemble }={ E }_{ X }\left[ { \left\{ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ ({ y }_{ m }(X)-f(X)) }  \right\}  }^{ 2 } \right] $$ <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } { \left\{ \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m } } (X) \right\}  }^{ 2 } \right]    $$
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } \left\{ { { \epsilon  }_{ 1 } }^{ 2 }(X)+{ { \epsilon  }_{ 2 } }^{ 2 }(X)+\cdots +{ { \epsilon  }_{ M } }^{ 2 }(X)+2\sum _{ i=1 }^{ M }{ \sum _{ j\neq i }^{ M }{ { \epsilon  }_{ i }(X){ \epsilon  }_{ j }(X) }  }  \right\}  \right]    $$
 
