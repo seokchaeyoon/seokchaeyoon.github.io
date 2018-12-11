@@ -11,7 +11,7 @@ use_math: true
 
 ## *“Bagging predictors is a method for generating multiple versions of a predictor and using these to get an aggregated predictor.”* (Breiman 1996)[^1]
 
-해당 포스트는 Ensemble 학습의 대표적인 방법 중의 하나인 Bagging에 대해 소개하고 있습니다. 포스트의 내용은 주로 고려대학교 강필성 교수님의 Business Analytics 강의 내용 및 강의 슬라이드와 [Machine Learning Mastery](https://machinelearningmastery.com/bagging-and-random-forest-ensemble-algorithms-for-machine-learning/)라는 블로그 내용을 바탕으로 작성되었습니다. 이외에도 다른 곳에서 참고한 부분은 주석으로 정리해두었습니다. 
+해당 포스트는 앙상블 학습의 대표적인 방법 중의 하나인 Bagging에 대해 소개하고 있습니다. 포스트의 내용은 주로 고려대학교 강필성 교수님의 Business Analytics 강의 내용 및 강의 슬라이드와 [Machine Learning Mastery](https://machinelearningmastery.com/bagging-and-random-forest-ensemble-algorithms-for-machine-learning/)라는 블로그 내용을 바탕으로 작성되었습니다. 이외에도 다른 곳에서 참고한 부분은 주석으로 정리해두었습니다. 
 
 <hr>
 
@@ -23,7 +23,7 @@ use_math: true
 
 **Bagging 알고리즘**은 Decision Tree처럼 모델의 bias는 낮지만 variance가 높은 분류 알고리즘들의 **variance를 낮추는 방법**입니다.(Bias와 Variance의 개념에 대해서는 2번에서 후술하겠습니다.) 뒤에서 좀더 구체적으로 설명하겠지만 간단하게 말하면, Bootstrap이라는 방법을 통해서 여러 개의 sample을 만들고, 각각의 sample을 이용해서 학습한 결과를 결합시키는 방법입니다. (그래서 **B**oostrap + **Agg**regat**ing** = Bagging입니다.)
 
-본격적으로 Bagging 알고리즘에 대해서 살펴보기 전에 우선 Ensemble 학습에 대해서 살펴보고 Bagging 알고리즘을 통해서 얻을 수 있는 효과가 무엇인지 한번 더 짚어보도록 하겠습니다. 
+본격적으로 Bagging 알고리즘에 대해서 살펴보기 전에 우선 앙상블 학습에 대해서 살펴보고 Bagging 알고리즘을 통해서 얻을 수 있는 효과가 무엇인지 한번 더 짚어보도록 하겠습니다. 
 
 ### 2. Ensemble Learning
 #### ***Why Ensemble?***
@@ -32,11 +32,11 @@ use_math: true
 
 > 수많은 장님들이 각각 만진 것들을 모두 합치면 코끼리에 매우 가까운 모양을 추론할 수 있다.
 
-Ensemble 학습은 이 명제와 매우 비슷한 intuition을 가지고 있습니다. 그것을 다음의 명제로 정리할 수 있습니다.
+앙상블 학습은 이 명제와 매우 비슷한 intuition을 가지고 있습니다. 그것을 다음의 명제로 정리할 수 있습니다.
 
 > 하나의 알고리즘만 이용하는 것보다, 여러 개의 알고리즘의 결과를 종합할 때 더 나은 Performance를 얻을 수 있다.
 
-아래의 이미지를 보면서 왜 Ensemble 학습을 하는 것인지에 대한 이유를 생각해보겠습니다.
+아래의 이미지를 보면서 왜 앙상블 학습을 하는 것인지에 대한 이유를 생각해보겠습니다.
 <img src="images/comparing_algorithms.PNG" alt="comparing_algorithms">
 강필성 교수님의 강의 슬라이드에서 발췌한 이 그래프는 5개의 서로 다른 알고리즘을 6개의 데이터셋에 적용했을 때, 그 performance가 어떻게 되는 지를 보여주고 있습니다. 그래프의 모양을 보시면 모든 데이터셋에서 우월한 performance를 보이는 알고리즘은 존재하지 않는다는 것을 확인할 수 있습니다. 이는 연구자나 현업에 계신 분들에게 다음과 같은 질문을 던져줍니다. 
 
@@ -46,7 +46,7 @@ Ensemble 학습은 이 명제와 매우 비슷한 intuition을 가지고 있습�
 
 이러한 고민에 대한 대답은 다음의 그래프를 통해서 확인할 수 있습니다.
 <img src="images/ensemble_result.PNG" alt="ensmeble_result">
-위 이미지에서 각각의 그래프는 5개의 알고리즘의 결과를 결합하였을 때(Ensemble 학습)의 결과를 보여주고 있습니다. 어떻게 결합했느냐에 따라서 약간의 차이는 존재할 수 있지만, 한 가지 확실한 것은 4가지 결합 방식의 결과 모두가 개별적인 알고리즘으로 학습했을 때보다 더 좋은 performance를 보였는 사실입니다. 이를 통해서 우리는 경험적으로 Ensemble 학습을 했을 때 개별 알고리즘 보다 더 좋은 performance를 낼 수 있다는 것을 확인할 수 있습니다. 따라서 위의 질문에 대해서는 다음과 같은 답을 내릴 수 있습니다. 
+위 이미지에서 각각의 그래프는 5개의 알고리즘의 결과를 결합하였을 때(앙상블 학습)의 결과를 보여주고 있습니다. 어떻게 결합했느냐에 따라서 약간의 차이는 존재할 수 있지만, 한 가지 확실한 것은 4가지 결합 방식의 결과 모두가 개별적인 알고리즘으로 학습했을 때보다 더 좋은 performance를 보였는 사실입니다. 이를 통해서 우리는 경험적으로 앙상블 학습을 했을 때 개별 알고리즘 보다 더 좋은 performance를 낼 수 있다는 것을 확인할 수 있습니다. 따라서 위의 질문에 대해서는 다음과 같은 답을 내릴 수 있습니다. 
 
 > 뭐가 최적인지 모르겠다면, 일단은 Ensemble!
 
@@ -129,7 +129,7 @@ $$={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } \left\{ { { \epsilon  }_{ 1 } }^
 
 이 정의를 살펴보는 이유는 이 정의가 Bagging과 관련된 중요한 이슈 2가지를 잘 담고 있기 때문입니다. 그 이슈들을 다음과 같습니다.
 
-1. Ensemble 시스템의 개별 구성요소인 base classifier의 다양성을 어떻게 확보할까? (어떻게 ***다양한*** 예측기를 생성할 것인가?)
+1. 앙상블 의 개별 구성요소인 base classifier의 다양성을 어떻게 확보할까? (어떻게 ***다양한*** 예측기를 생성할 것인가?)
 1. 개별 분류기의 결과물을 어떻게 통합할 것인가? (이 예측기들을 ***어떻게 결합***할 것인가?)
 
 이를 그림으로 표현하자면 다음과 같이 표현할 수 있을 것입니다.
@@ -218,8 +218,11 @@ $$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$
 $$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$ </div>
 
 <hr>
-### Bagging in Marketing Research
-
+### Example of Bagging in Marketing Research[^3]
+Bagging은 기계 학습 분야의 연구 뿐만 아니라 다른 영역의 연구에서도 사용되고 있습니다. 그 예로 전형적인 마케팅 논문에서 Bagging을 어떻게 이용하는 지를 살펴보겠습니다. 2006년 Journal of Marketing Resarch라는 마케팅 분야의 탑저널에 실린 "Bagging and Boosting Classification Trees to Predict Churn"이라는 논문을 보면, 기존의 마케팅 연구에서 가장 많이 사용하는 Binary Logit과 비교했을 때, 서비스 이탈 고객을 예측하는 데에 있어서 Bagging과 Stochastic Gradient Boosting 방식이 얼마나 performance가 더 좋은 지 잘 보여주고 있습니다.
+아래 이미지는 3개의 알고리즘을 이용한 분류 결과를 그래프롤 통해서 보여주고 있습니다.
+<img src="images/compare.PNG" alt="compare">
+Iteration 값이 증가함에 따라 bagging과 stochastic gradient boosting 모델 모두, gini coefficient와 top decile lift의 관점에서 벤치마크가 되는 binary logit 모델 보다 더 좋은 성능을 보이는 것을 확인할 수 있습니다.
 
 <hr>
 ### Bagging using Python Code
@@ -232,7 +235,7 @@ def func(x):
 
 <hr>
 
-##### Appendix: How Bagging works better?[^3]
+##### Appendix: How Bagging works better?[^4]
 어떻게 Bagging이 예측력을 크게 향상시킬 수 있을까요. 주어진 훈련자료 $$L $$($$L={ ({ x }_{ i },{ y }_{ i }) }_{ i=1 }^{ n }$$)을 이용하여 구축된 예측모형 $$\hat { f } (x)$$는 $$L $$에 의존합니다. 이를 강조하기 위해서 $$\hat { f } (x)=f(x,L )$$라고 쓰겠습니다.<br>
 그리고 주어진 예측모형 $$f(x,L )$$에 대하여 평균예측모형  $${f}_{ Avg }(x)$$를 $${ f }_{ Avg }(x)={ E }_{ L  }f(x, L )$$이라고 정의하겠습니다. 여기서 기댓값은 훈련자료가 얻어진 **모집단의 분포**를 이용하여 구한다는 점에 유의해야 합니다. 다음의 증명은 평균예측모형의 기대손실이 단일 예측모형의 기대손실보다 항상 작다는 것을 보여줍니다.<br>
 $$(X,y)$$를 $$L$$과 독립인 미래의 관측 값이라고 하겠습니다. 이때 제곱손실함수 $$L(y,a)={ (y-a) }^{ 2 }$$에 대하여 $$f(x,L)$$과 $${ f }_{ Avg }(x)$$의 기대손실 $$R$$와 $${ R }_{ Avg }$$를 다음과 같이 정의할 수 있습니다.<br>
@@ -259,8 +262,7 @@ Bagging은 결국 주어진 예측모형의 평균예측모형을 구하는 것�
 
 ##### Footnotes:
 
-[^1]: Breiman, Leo (1996). "Bagging predictors". Machine Learning. 24 (2): 123–140.
-
+[^1]: Breiman, Leo (1996). "Bagging predictors". Machine Learning. 24(2): 123–140.
 [^2]: [Learning Carrot 블로그](https://learningcarrot.wordpress.com/2015/11/12/%EB%B6%80%ED%8A%B8%EC%8A%A4%ED%8A%B8%EB%9E%A9%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC-bootstrapping/)
-
-[^3]: 노준혁 (2012). "앙상블 기법을 이용한 고객의 재 구매 "
+[^3]: Lemmens, A., & Croux, C. (2006). "Bagging and Boosting Classification Trees to Predict Churn". Journal of Marketing Research, 43(2): 276-286. 
+[^4]: 노준혁. (2012). "앙상블 기법을 이용한 고객의 재 구매"
