@@ -473,7 +473,7 @@ def bagging_predict(trees, row):
 	return max(set(predictions), key=predictions.count)
  ```
  
-Finally, a new function named bagging() is developed that is responsible for creating the samples of the training dataset, training a decision tree on each, then making predictions on the test dataset using the list of bagged trees.
+마지막으로 baggging 함수를 다음과 같이 만들었습니다.
  
  ```python
 # Bootstrap Aggregation Algorithm
@@ -487,15 +487,8 @@ def bagging(train, test, max_depth, min_size, sample_size, n_trees):
 	return(predictions)
 ```
 
-이제 만들어진 함수들을 이용해서 Bagging 알고리즘을 
-A k value of 5 was used for cross-validation, giving each fold 208/5 = 41.6 or just over 40 records to be evaluated upon each iteration.
-
-Deep trees were constructed with a max depth of 6 and a minimum number of training rows at each node of 2. Samples of the training dataset were created with 50% the size of the original dataset. This was to force some variety in the dataset subsamples used to train each tree. The default for bagging is to have the size of sample datasets match the size of the original training dataset.
-
-A series of 4 different numbers of trees were evaluated to show the behavior of the algorithm.
-
-The accuracy from each fold and the mean accuracy for each configuration are printed. We can see a trend of some minor lift in performance as the number of trees is increased.
-
+이제 만들어진 함수들을 이용해서 [sonar](https://archive.ics.uci.edu/ml/datasets/Connectionist+Bench+(Sonar,+Mines+vs.+Rocks))라는 데이터셋을 분석해보겠습니다. k-fold 교차 검증에서 k값은 5로 설정했고, deicion tree는 최대 깊이를 6으로 설정했습니다. tree의 개수를 4가지(1개, 5개, 10개, 15개)로 설정하여 알고리즘의 학습 결과가 얼마나 달라지는 지를 비교할 수 있게 했습니다. 
+결과를 보게 되면, tree의 갯수가 1개일 때 보다는 tree 갯수가 많을 때 예측 정확도가 증가하는 것으로 나왔습니다. 
 ```python
 # Test bagging on the sonar dataset
 seed(1)
