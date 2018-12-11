@@ -85,19 +85,40 @@ Bias와 Variance에 대한 내용을 이미지화 하면 다음과 같이 표현
 B의 경우 Bias는 낮으나 Variance는 높은, 즉 input 값의 변화에 따라서 함수값의 변동이 큰 과적합의 경향이 나타나는 학습 결과를 보여주고 있습니다. 이는 주로 복잡도가 높은 알고리즘으로 학습했을 때(예. Full Tree) 나타나는 결과입니다. C의 경우에는 Bias는 높으나 Variance는 높습니다. <br>
 B의 경우를 D와 같이 바꾸기 위해서 쓰는 학습 방법이 Bagging이고, C의 경우를 D와 같이 바꾸기 위해서 사용하는 학습 방법이 Boosting입니다.
 
+#### ***Answer to "Why Ensemble works well"***
+이제 개념들을 정리했으니, 원래의 질문에 대한 수학적 답변을 내려보겠습니다.
 $$ { y }_{ m }=f(X)+{ \epsilon  }_{ m }(X) $$
+$${ y }_{ m }$$은 m이라는 개별 모델에서 만들어진 값입니다. 그리고 개별 모델 m은 앙상블을 구성하는 M개의 모델 중 하나입니다. 이 때 개별 모델 m의  error를 $${ \epsilon  }_{ m }(X)$$이라고 하면, $${ y }_{ m }$$와 $$f(X)$$의 차이(error)를 제곱한 것의 기대값은 아래와 같이 쓸 수 있습니다. <br>
+
 $$ { E }_{ X }\left[ { \left\{ { y }_{ m }(X)-f(X) \right\}  }^{ 2 } \right] ={ E }_{ X }\left[ { { \epsilon  }_{ m }(X) }^{ 2 } \right]    $$ 
+
+만일 앙상블을 구성하는 전체 M개의 모델의 error의 제곱의 기대값의 평균을 구한다면(앙상블 학습은 하지 않고 각각으로 학습한 다음에 구한 평균값) 다음과 같은 식으로 정리할 수 있습니다.
 $$ { E }_{ Avg }=\frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { E }_{ X }[{ \epsilon  }_{ m }{ (X) }^{ 2 }] } $$
+
+그러나 앙상블 학습을 통해서 얻어지는 기대 error값의 제곱은 다음과 같습니다.
 $$  { E }_{ Ensemble }={ E }_{ X }\left[ { \left\{ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ ({ y }_{ m }(X)-f(X)) }  \right\}  }^{ 2 } \right] $$
 $$   { E }_{ Ensemble }={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } { \left\{ \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m } } (X) \right\}  }^{ 2 } \right]    $$
-$$   { E }_{ Ensemble }={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } \left\{ { { \epsilon  }_{ 1 } }^{ 2 }(X)+{ { \epsilon  }_{ 2 } }^{ 2 }(X)+\cdots +{ { \epsilon  }_{ M } }^{ 2 }(X)+\sum _{ i=1 }^{ M }{ \sum _{ j\neq i }^{ M }{ { \epsilon  }_{ i }(X){ \epsilon  }_{ j }(X) }  }  \right\}  \right]    $$
+$$   { E }_{ Ensemble }={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } \left\{ { { \epsilon  }_{ 1 } }^{ 2 }(X)+{ { \epsilon  }_{ 2 } }^{ 2 }(X)+\cdots +{ { \epsilon  }_{ M } }^{ 2 }(X)+2\sum _{ i=1 }^{ M }{ \sum _{ j\neq i }^{ M }{ { \epsilon  }_{ i }(X){ \epsilon  }_{ j }(X) }  }  \right\}  \right]    $$
 
-$$  { E }_{ X }\left[ { \epsilon  }_{ m }(X) \right] =0  $$
-$$  { E }_{ X }\left[ { \epsilon  }_{ m }(X){ \epsilon  }_{ l }(X) \right] =0\quad (m\neq l)  $$ <br>
+여기에서 다음의 두 가정을 추가해보겠습니다. 
+* $$  { E }_{ X }\left[ { \epsilon  }_{ m }(X) \right] =0  $$
+* $$  { E }_{ X }\left[ { \epsilon  }_{ m }(X){ \epsilon  }_{ l }(X) \right] =0\quad (m\neq l)  $$ <br>
+
+두 가정이 만족될 경우 M개의 모델의 error의 제곱의 기대값의 평균($${ E }_{ Avg }$$)과 앙상블 학습에서의 기대되는 error의 제곱의 값($${ E }_{ Ensemble }$$)의 관계는 다음과 같은 식으로 표현됩니다.<br>
 $$  { E }_{ Ensemble }=\frac { 1 }{ M } { E }_{ Avg }   $$
-$$  { \left[ \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m } } (X) \right]  }^{ 2 }\le M\sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } } \le { \left[ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m }(X) }  \right]  }^{ 2 }\le \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } }   $$
+여기서 앙상블의 error는 개별 error의 평균값의 1/M입니다. 물론 이 관계식은 위의 가정, 특히 error 같의 상관관계가 없다는 매우 강한 가정을 만족할 때 성립됩니다. (모델들이 모두 독립이라는 것은 있을 수 없는 일이겠지요.)
+그러나 이를 통해서 우리는 **이상적인 조건 하에서 앙상블을 통해서 error를 1/M로 줄일 수 있다**는 것을 확인할 수 있습니다.
+
+위의 설명이 앙상을을 통한 성능 향상의 상한을 보여주었다면, 앙상블을 통한 성능 향상의 하한은 어디일까요? 각각의 모델들의 error의 합의 제곱은 코시 부등식에 따라서 다음과 같이 표현할 수 있습니다.
+
+$$  { \left[ \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m } } (X) \right]  }^{ 2 }\le M\sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } }$$ <br>
+
+위 식의 양변을 $$\frac { 1 }{ { M }^{ 2 } } $$로 나누면 다음의 부등식이 성립합니다.
+$${ \left[ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m }(X) }  \right]  }^{ 2 }\le \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } }   $$
+이 때 좌변은 $${ E }_{ Ensemble }$$을, 우변은 $${ E }_{ Avg }$$를 나타냅니다.
 $$  { E }_{ Ensemble }\le { E }_{ Avg }  $$
 
+위의 결론을 통해서 앙상블 학습을 하면 **최악의 경우라고 하더라도 개별 모델들의 error의 평균보다는 더 낮은 error를 갖는 학습 결과를 얻을 수 있다**는 것을 확인할 수 있습니다. 
 
 ### 3. Issues in Bagging
 
