@@ -63,7 +63,7 @@ Ensenble 학습이 왜 단일 알고리즘보다 더 좋은 performance를 보�
 
 <img src="images/dgp2.PNG" alt="dgp2">
 위의 이미지에서 추정한 여러 함수값($$\hat { F } $$)들의 평균을 다음과 같이 $$\bar { F } (X)$$라고 정의하겠습니다.<br>
-$$ \bar { F } (X)=E\left[ { \hat { F }  }_{ D }(X) \right]  $$
+<div style="text-align:center">$$ \bar { F } (X)=E\left[ { \hat { F }  }_{ D }(X) \right]  $$</div>
 
 그 때, 어떤 $${ X }_{ 0 }$$라는 데이터에 대해서 정답(true y)과 추정된 y값($$\hat { F } (X)$$) 사이의 차이를 계산해 보면 아래와 같이 정리할 수 있습니다.
 $$ Err({ X }_{ 0 })=E{ \left[ y-\hat { F } (X)|X={ X }_{ 0 } \right]  }^{ 2 } $$
@@ -94,8 +94,8 @@ $${ y }_{ m }$$은 m이라는 개별 모델에서 만들어진 값입니다. 그
 
 $$ { E }_{ X }\left[ { \left\{ { y }_{ m }(X)-f(X) \right\}  }^{ 2 } \right] ={ E }_{ X }\left[ { { \epsilon  }_{ m }(X) }^{ 2 } \right]    $$ 
 
-만일 앙상블을 구성하는 전체 M개의 모델의 error의 제곱의 기대값의 평균을 구한다면(앙상블 학습은 하지 않고 각각으로 학습한 다음에 구한 평균값) 다음과 같은 식으로 정리할 수 있습니다.
-$$ { E }_{ Avg }=\frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { E }_{ X }[{ \epsilon  }_{ m }{ (X) }^{ 2 }] } $$
+만일 앙상블을 구성하는 전체 M개의 모델의 error의 제곱의 기대값의 평균을 구한다면(앙상블 학습은 하지 않고 각각으로 학습한 다음에 구한 평균값) 다음과 같은 식으로 정리할 수 있습니다. <br>
+<div style="text-align:center">$$ { E }_{ Avg }=\frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { E }_{ X }[{ \epsilon  }_{ m }{ (X) }^{ 2 }] } $$</div>
 
 그러나 앙상블 학습을 통해서 얻어지는 기대 error값의 제곱은 다음과 같습니다. <br>
 $$  { E }_{ Ensemble }={ E }_{ X }\left[ { \left\{ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ ({ y }_{ m }(X)-f(X)) }  \right\}  }^{ 2 } \right] $$
@@ -113,12 +113,12 @@ $$  { E }_{ Ensemble }=\frac { 1 }{ M } { E }_{ Avg }   $$ <br>
 
 위의 설명이 앙상을을 통한 성능 향상의 상한을 보여주었다면, 앙상블을 통한 성능 향상의 하한은 어디일까요? 각각의 모델들의 error의 합의 제곱은 코시 부등식에 따라서 다음과 같이 표현할 수 있습니다.
 
-$$  { \left[ \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m } } (X) \right]  }^{ 2 }\le M\sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } }$$ <br>
+<div style="text-align:center">$$  { \left[ \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m } } (X) \right]  }^{ 2 }\le M\sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } }$$ </div>
 
 위 식의 양변을 $$\frac { 1 }{ { M }^{ 2 } } $$로 나누면 다음의 부등식이 성립합니다.
-$${ \left[ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m }(X) }  \right]  }^{ 2 }\le \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } }   $$ <br>
+<div style="text-align:center">$${ \left[ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m }(X) }  \right]  }^{ 2 }\le \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { { \epsilon  }_{ m }(X) }^{ 2 } }   $$ </div>
 이 때 좌변은 $${ E }_{ Ensemble }$$을, 우변은 $${ E }_{ Avg }$$를 나타냅니다. <br>
-$$  { E }_{ Ensemble }\le { E }_{ Avg }  $$
+<div style="text-align:center">$$  { E }_{ Ensemble }\le { E }_{ Avg }  $$</div>
 
 위의 결론을 통해서 앙상블 학습을 하면 **최악의 경우라고 하더라도 개별 모델들의 error의 평균보다는 더 낮은 error를 갖는 학습 결과를 얻을 수 있다**는 것을 확인할 수 있습니다. 
 
@@ -193,20 +193,20 @@ $$ { \hat { y }  }_{ Ensemble }=arg\max _{ i }{ (\sum _{ j=1 }^{ n }{ \delta ({ 
 
  Majority Voting은 1로 분류한 것과 0으로 분류한 것의 수를 각각 센 다음, 다수의 범주로 할당해주는 결합방식입니다. 위의 예의 경우 6개의 모델이 1로 분류했고, 4개의 모델이 0으로 분류했기 때문에 Vajority Voting에 따라서 해당 데이터를 1로 할당하게 됩니다.
 
-$$\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\ 1)\ =\ 6 }$$ <br>
+<div style="text-align:center">$$\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\ 1)\ =\ 6 }$$ <br>
 $$\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\ 0)\ =\ 4 }$$ <br>
-$$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$
+$$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$ </div>
 
 * Weighted Voting (weight: validation accuracy of individual models)
 
-$$ { \hat { y }  }_{ Ensemble }\ =\ arg\max _{ i }{ \left( \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ i \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } ,\ i\ \in \ \{ 0,\ 1\}  \right)  }   $$ <br>
+<div style="text-align:center">$$ { \hat { y }  }_{ Ensemble }\ =\ arg\max _{ i }{ \left( \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ i \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } ,\ i\ \in \ \{ 0,\ 1\}  \right)  }   $$ </div>
 
 Weighted Voting 중 validation accuracy를 weight로 활용하는 방법은, 이전에 개별 모델이 보여주었던 정확성을 라벨링에 활용하는 방식입니다. 위의 예에서 Model 2는 vaidation accuracy가 0.75이고 Model 7은 validation accuracy가 0.95입니다. Majority Voting 방식으로 라벨링을 한다면, Model 2와 Model 7의 결과값에 같은 비중을 준다는 것인데, 이는 validation accuracy를 고려할 때 문제가 있는 방식일 겁니다.
 Validation accuracy를 weight로 고려하면, 새로운 데이터를 0으로 할당한 경우의 voting 값은 0.424, 1로 할당한 경우의 voting 값은 0.576입니다. 이에 따라서 새로운 데이터를 1로 할당할 수 있을 것입니다.
 
-$$ \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 0 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } =0.424  $$ <br>
+<div style="text-align:center">$$ \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 0 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } =0.424  $$ <br>
 $$  \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 1 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } =0.576 $$ <br>
-$$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$
+$$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$</div>
 
 * Weighted Voting (weight: predicted probability of each class)
 
@@ -214,9 +214,9 @@ $$ { \hat { y }  }_{ Ensemble }=arg\max _{ i }{ \left( \frac { 1 }{ n } \sum _{ 
 
 Validation accuracy 말고도 각 모델에서의 예측 cofindence를 weight로 사용할 수도 있습니다. 위의 예의 경우 주황색 칼럼의 수치를 예측 confidence로 사용할 수 있습니다. 이 방식을 따르면 0으로 할당하는 것의 voting값은 0.375, 1로 할당하는 것의 voting값은 0.625입니다. 이에 따라 최종적으로 새로운 데이터를 1로 할당할 수 있습니다. 
 
-$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=0 \right)  } =0.375  $$ <br>
+<div style="text-align:center">$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=0 \right)  } =0.375  $$ <br>
 $$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$ <br>
-$$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$
+$$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$ </div>
 
 <hr>
 ### Bagging in Marketing Research
