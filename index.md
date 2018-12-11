@@ -218,6 +218,19 @@ $$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$
 $$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$ </div>
 
 <hr>
+### Bagging using Python Code
+
+```python
+# Create a random subsample from the dataset with replacement
+def subsample(dataset, ratio=1.0):
+	sample = list()
+	n_sample = round(len(dataset) * ratio)
+	while len(sample) < n_sample:
+		index = randrange(len(dataset))
+		sample.append(dataset[index])
+	return sample
+```
+<hr>
 ### Example of Bagging in Marketing Research[^3]
 Bagging은 기계 학습 분야의 연구 뿐만 아니라 다른 영역의 연구에서도 사용되고 있습니다. 그 예로 전형적인 마케팅 논문에서 Bagging을 어떻게 이용하는 지를 살펴보겠습니다. 2006년 Journal of Marketing Resarch라는 마케팅 분야의 탑저널에 실린 "Bagging and Boosting Classification Trees to Predict Churn"이라는 논문을 보면, 기존의 마케팅 연구에서 가장 많이 사용하는 Binary Logit과 비교했을 때, 서비스 이탈 고객을 예측하는 데에 있어서 Bagging과 Stochastic Gradient Boosting 방식이 얼마나 performance가 더 좋은 지 잘 보여주고 있습니다.
 아래 이미지는 3개의 알고리즘을 이용한 분류 결과를 그래프롤 통해서 보여주고 있습니다.
@@ -225,16 +238,6 @@ Bagging은 기계 학습 분야의 연구 뿐만 아니라 다른 영역의 연�
 Iteration 값이 증가함에 따라 bagging과 stochastic gradient boosting 모델 모두, gini coefficient와 top decile lift의 관점에서 벤치마크가 되는 binary logit 모델 보다 더 좋은 성능을 보이는 것을 확인할 수 있습니다.
 
 <hr>
-### Bagging using Python Code
-
-```python
-def func(x):
-    print('hello, world')
-    print('this is a really long statements, this is a really long statementsi, this is a really long statements')
-```
-
-<hr>
-
 ##### Appendix: How Bagging works better?[^4]
 어떻게 Bagging이 예측력을 크게 향상시킬 수 있을까요. 주어진 훈련자료 $$L $$($$L={ ({ x }_{ i },{ y }_{ i }) }_{ i=1 }^{ n }$$)을 이용하여 구축된 예측모형 $$\hat { f } (x)$$는 $$L $$에 의존합니다. 이를 강조하기 위해서 $$\hat { f } (x)=f(x,L )$$라고 쓰겠습니다.<br>
 그리고 주어진 예측모형 $$f(x,L )$$에 대하여 평균예측모형  $${f}_{ Avg }(x)$$를 $${ f }_{ Avg }(x)={ E }_{ L  }f(x, L )$$이라고 정의하겠습니다. 여기서 기댓값은 훈련자료가 얻어진 **모집단의 분포**를 이용하여 구한다는 점에 유의해야 합니다. 다음의 증명은 평균예측모형의 기대손실이 단일 예측모형의 기대손실보다 항상 작다는 것을 보여줍니다.<br>
