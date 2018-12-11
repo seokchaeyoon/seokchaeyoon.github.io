@@ -231,7 +231,7 @@ def subsample(dataset, ratio=1.0):
 	return sample
 ```
 <hr>
-### Example of Bagging in Marketing Research[^3]
+### Bagging in Marketing Research[^3]
 Bagging은 기계 학습 분야의 연구 뿐만 아니라 다른 영역의 연구에서도 사용되고 있습니다. 그 예로 전형적인 마케팅 논문에서 Bagging을 어떻게 이용하는 지를 살펴보겠습니다. 2006년 Journal of Marketing Resarch라는 마케팅 분야의 탑저널에 실린 "Bagging and Boosting Classification Trees to Predict Churn"이라는 논문을 보면, 기존의 마케팅 연구에서 가장 많이 사용하는 Binary Logit과 비교했을 때, 서비스 이탈 고객을 예측하는 데에 있어서 Bagging과 Stochastic Gradient Boosting 방식이 얼마나 performance가 더 좋은 지 잘 보여주고 있습니다.
 아래 이미지는 3개의 알고리즘을 이용한 분류 결과를 그래프롤 통해서 보여주고 있습니다.
 <img src="images/compare.PNG" alt="compare">
