@@ -107,7 +107,7 @@ $$   { E }_{ Ensemble }={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } \left\{ { {
 > $$  { E }_{ X }\left[ { \epsilon  }_{ m }(X){ \epsilon  }_{ l }(X) \right] =0\quad (m\neq l)  $$ <br>
 
 두 가정이 만족될 경우 M개의 모델의 error의 제곱의 기대값의 평균($${ E }_{ Avg }$$)과 앙상블 학습에서의 기대되는 error의 제곱의 값($${ E }_{ Ensemble }$$)의 관계는 다음과 같은 식으로 표현됩니다.<br>
-$$  { E }_{ Ensemble }=\frac { 1 }{ M } { E }_{ Avg }   $$ <br>
+<div style="text-align:center">$$  { E }_{ Ensemble }=\frac { 1 }{ M } { E }_{ Avg }   $$ </div>
 여기서 앙상블의 error는 개별 error의 평균값의 1/M입니다. 물론 이 관계식은 위의 가정, 특히 error 같의 상관관계가 없다는 매우 강한 가정을 만족할 때 성립됩니다. (모델들이 모두 독립이라는 것은 있을 수 없는 일이겠지요.)
 그러나 이를 통해서 우리는 **이상적인 조건 하에서 앙상블을 통해서 error를 1/M로 줄일 수 있다**는 것을 확인할 수 있습니다.
 
@@ -193,8 +193,8 @@ $$ { \hat { y }  }_{ Ensemble }=arg\max _{ i }{ (\sum _{ j=1 }^{ n }{ \delta ({ 
 
  Majority Voting은 1로 분류한 것과 0으로 분류한 것의 수를 각각 센 다음, 다수의 범주로 할당해주는 결합방식입니다. 위의 예의 경우 6개의 모델이 1로 분류했고, 4개의 모델이 0으로 분류했기 때문에 Vajority Voting에 따라서 해당 데이터를 1로 할당하게 됩니다.
 
-<div style="text-align:center">$$\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\ 1)\ =\ 6 }$$ <br>
-$$\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\ 0)\ =\ 4 }$$ <br>
+<div style="text-align:center">$$\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\ 1)\ =\ 6 }$$
+$$\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\ 0)\ =\ 4 }$$
 $$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$ </div>
 
 * Weighted Voting (weight: validation accuracy of individual models)
@@ -204,8 +204,8 @@ $$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$ </div>
 Weighted Voting 중 validation accuracy를 weight로 활용하는 방법은, 이전에 개별 모델이 보여주었던 정확성을 라벨링에 활용하는 방식입니다. 위의 예에서 Model 2는 vaidation accuracy가 0.75이고 Model 7은 validation accuracy가 0.95입니다. Majority Voting 방식으로 라벨링을 한다면, Model 2와 Model 7의 결과값에 같은 비중을 준다는 것인데, 이는 validation accuracy를 고려할 때 문제가 있는 방식일 겁니다.
 Validation accuracy를 weight로 고려하면, 새로운 데이터를 0으로 할당한 경우의 voting 값은 0.424, 1로 할당한 경우의 voting 값은 0.576입니다. 이에 따라서 새로운 데이터를 1로 할당할 수 있을 것입니다.
 
-<div style="text-align:center">$$ \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 0 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } =0.424  $$ <br>
-$$  \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 1 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } =0.576 $$ <br>
+<div style="text-align:center">$$ \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 0 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } =0.424  $$
+$$  \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 1 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } =0.576 $$
 $$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$</div>
 
 * Weighted Voting (weight: predicted probability of each class)
@@ -214,8 +214,8 @@ $$ { \hat { y }  }_{ Ensemble }=arg\max _{ i }{ \left( \frac { 1 }{ n } \sum _{ 
 
 Validation accuracy 말고도 각 모델에서의 예측 cofindence를 weight로 사용할 수도 있습니다. 위의 예의 경우 주황색 칼럼의 수치를 예측 confidence로 사용할 수 있습니다. 이 방식을 따르면 0으로 할당하는 것의 voting값은 0.375, 1로 할당하는 것의 voting값은 0.625입니다. 이에 따라 최종적으로 새로운 데이터를 1로 할당할 수 있습니다. 
 
-<div style="text-align:center">$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=0 \right)  } =0.375  $$ <br>
-$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$ <br>
+<div style="text-align:center">$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=0 \right)  } =0.375  $$
+$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$
 $$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$ </div>
 
 <hr>
