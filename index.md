@@ -95,14 +95,14 @@ $$ { E }_{ X }\left[ { \left\{ { y }_{ m }(X)-f(X) \right\}  }^{ 2 } \right] ={ 
 만일 앙상블을 구성하는 전체 M개의 모델의 error의 제곱의 기대값의 평균을 구한다면(앙상블 학습은 하지 않고 각각으로 학습한 다음에 구한 평균값) 다음과 같은 식으로 정리할 수 있습니다.
 $$ { E }_{ Avg }=\frac { 1 }{ M } \sum _{ m=1 }^{ M }{ { E }_{ X }[{ \epsilon  }_{ m }{ (X) }^{ 2 }] } $$
 
-그러나 앙상블 학습을 통해서 얻어지는 기대 error값의 제곱은 다음과 같습니다.
+그러나 앙상블 학습을 통해서 얻어지는 기대 error값의 제곱은 다음과 같습니다. <br>
 $$  { E }_{ Ensemble }={ E }_{ X }\left[ { \left\{ \frac { 1 }{ M } \sum _{ m=1 }^{ M }{ ({ y }_{ m }(X)-f(X)) }  \right\}  }^{ 2 } \right] $$
 $$   { E }_{ Ensemble }={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } { \left\{ \sum _{ m=1 }^{ M }{ { \epsilon  }_{ m } } (X) \right\}  }^{ 2 } \right]    $$
 $$   { E }_{ Ensemble }={ E }_{ X }\left[ \frac { 1 }{ { M }^{ 2 } } \left\{ { { \epsilon  }_{ 1 } }^{ 2 }(X)+{ { \epsilon  }_{ 2 } }^{ 2 }(X)+\cdots +{ { \epsilon  }_{ M } }^{ 2 }(X)+2\sum _{ i=1 }^{ M }{ \sum _{ j\neq i }^{ M }{ { \epsilon  }_{ i }(X){ \epsilon  }_{ j }(X) }  }  \right\}  \right]    $$
 
 여기에서 다음의 두 가정을 추가해보겠습니다. 
-* $$  { E }_{ X }\left[ { \epsilon  }_{ m }(X) \right] =0  $$
-* $$  { E }_{ X }\left[ { \epsilon  }_{ m }(X){ \epsilon  }_{ l }(X) \right] =0\quad (m\neq l)  $$ <br>
+> $$  { E }_{ X }\left[ { \epsilon  }_{ m }(X) \right] =0  $$
+> $$  { E }_{ X }\left[ { \epsilon  }_{ m }(X){ \epsilon  }_{ l }(X) \right] =0\quad (m\neq l)  $$ <br>
 
 두 가정이 만족될 경우 M개의 모델의 error의 제곱의 기대값의 평균($${ E }_{ Avg }$$)과 앙상블 학습에서의 기대되는 error의 제곱의 값($${ E }_{ Ensemble }$$)의 관계는 다음과 같은 식으로 표현됩니다.<br>
 $$  { E }_{ Ensemble }=\frac { 1 }{ M } { E }_{ Avg }   $$
