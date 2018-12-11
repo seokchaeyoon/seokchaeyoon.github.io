@@ -314,7 +314,7 @@ def str_column_to_int(dataset, column):
 	return lookup
 ```
 
-이 코드에서는 모델의 성능을 측정하기 위해서 k-fold 교차 검증 방법을 사용했습니다. 이를 위해서 training 데이터셋을 k로 쪼개고 k-1개의 데이터셋은 training data, 나머지 1개의 데이트셋은 validation data로 사용하고 모델의 error를 계산했습니다. 각각의 모델의 분류 정확성을 측정하기 위해서  Classification accuracy will be used to evaluate each model. These behaviors are provided in the cross_validation_split(), accuracy_metric() and evaluate_algorithm() helper functions.
+이 코드에서는 모델의 성능을 측정하기 위해서 k-fold 교차 검증 방법을 사용했습니다. 이를 위해서 training 데이터셋을 k로 쪼개고 k-1개의 데이터셋은 training data, 나머지 1개의 데이트셋은 validation data로 사용하고 모델의 error를 계산했습니다. 각각의 모델의 분류 정확성을 측정하기 위해서 3개의 함수(cross_validation_split, accuracy_metric, evaluate_algorithm)를 만들었습니다. 
 
 ```python
 # Split a dataset into k folds
@@ -358,7 +358,7 @@ def evaluate_algorithm(dataset, algorithm, n_folds, *args):
 	return scores
 ```
 
-We will also use an implementation of the Classification and Regression Trees (CART) algorithm adapted for bagging including the helper functions test_split() to split a dataset into groups, gini_index() to evaluate a split point, get_split() to find an optimal split point, to_terminal(), split() and build_tree() used to create a single decision tree, predict() to make a prediction with a decision tree and the subsample() function described in the previous step to make a subsample of the training dataset
+이 코드에서는 앙상블 학습을 위한 base classifier로 CART 알고리즘을 사용했습니다. CART 알고리즘을 구현한 함수를 만들기 위해서 dataset를 tree로 분기하기 위한 test_split 함수, 분기 포인트를 찾기 위한 gini_index 함수, 최적의 분기점을 찾기 위한 get_split 함수, 하나의 단일 deicision tree를 만들기 위한 to_terminal, split, build_tree 함수를 만들었습니다. Decision tree로 예측 결과를 생성하기 위한 predict 함수, 그리고 위에서 언급한 bootstrapping을 위해서 subsample 함수를 만들었습니다.
 
 ```python
 # Split a dataset based on an attribute and an attribute value
@@ -464,7 +464,7 @@ def subsample(dataset, ratio):
 	return sample
 ```
 
-A new function named bagging_predict() is developed that is responsible for making a prediction with each decision tree and combining the predictions into a single return value. This is achieved by selecting the most common prediction from the list of predictions made by the bagged trees. 
+bagging_predict 함수는 여러 base classifier의 예측값을 결합하는 함수이다. 이 코드에서는 majority voting 방식으로 예측값을 결합했다.
 
 ```python
 # Make a prediction with a list of bagged trees
