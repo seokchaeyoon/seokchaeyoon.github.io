@@ -237,7 +237,7 @@ def func(x):
 그리고 주어진 예측모형 $$f(x,L )$$에 대하여 평균예측모형  $${f}_{ Avg }(x)$$를 $${ f }_{ Avg }(x)={ E }_{ L  }f(x, L )$$이라고 정의하겠습니다. 여기서 기댓값은 훈련자료가 얻어진 **모집단의 분포**를 이용하여 구한다는 점에 유의해야 합니다. 다음의 증명은 평균예측모형의 기대손실이 단일 예측모형의 기대손실보다 항상 작다는 것을 보여줍니다.<br>
 $$(X,y)$$를 $$L$$과 독립인 미래의 관측 값이라고 하겠습니다. 이때 제곱손실함수 $$L(y,a)={ (y-a) }^{ 2 }$$에 대하여 $$f(x,L)$$과 $${ f }_{ Avg }(x)$$의 기대손실 $$R$$와 $${ R }_{ Avg }$$를 다음과 같이 정의할 수 있습니다.<br>
 
-<div style="text-align:center">$$R={ E }_{ (X,y) }{ E }_{ L }L(y,f(x,L))$$ <br>
+<div style="text-align:center">$$R={ E }_{ (X,y) }{ E }_{ L }L(y,f(x,L))$$
 $${ R }_{ Avg }={ E }_{ (X,y) }L(y,{ f }_{ Avg }(x))$$</div>
 
 제곱함수는 볼록함수이므로 Jensen의 부등식에 의하여 다음의 관계식이 성립합니다.<br>
@@ -245,7 +245,7 @@ $${ R }_{ Avg }={ E }_{ (X,y) }L(y,{ f }_{ Avg }(x))$$</div>
 
 따라서, 
 $$ R={ E }_{ (X,y) }\left[ { y }^{ 2 } \right] -2{ E }_{ (X,y) }\left[ y\cdot { E }_{ L }f(X,L) \right] +{ E }_{ (X,y) }{ E }_{ L }\left[ { f }^{ 2 }(x,L) \right]   $$ <br>
-&nbsp;&nbsp;&nbsp;&nbsp;$$  \ge E_{ (X,y) }\left[ { y }^{ 2 } \right] -2{ E }_{ (x,y) }[y\cdot { f }_{ Avg }(X)]+{ E }_{ (X,y) }[{ f }_{ Avg }{ (X) }^{ 2 }] $$
+&nbsp;&nbsp;&nbsp;&nbsp;$$  \ge E_{ (X,y) }\left[ { y }^{ 2 } \right] -2{ E }_{ (x,y) }[y\cdot { f }_{ Avg }(X)]+{ E }_{ (X,y) }[{ f }_{ Avg }{ (X) }^{ 2 }] $$ <br>
 &nbsp;&nbsp;&nbsp;&nbsp;$$=E_{ (x,y) }[{ (y-{ f }_{ Avg }(X)) }^{ 2 }]={ R }_{ Avg } $$
 
 위의 증명에서 알 수 있는 한 가지는 $$ R-{ R }_{ Avg } $$를 다음의 식으로 정리할 수 있다는 것입니다.
