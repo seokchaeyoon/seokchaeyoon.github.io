@@ -278,9 +278,7 @@ for size in [1, 10, 100]:
 > Samples=100, Estimated Mean: 4.447
 
 ##### Bagging
-The example assumes that a CSV copy of the dataset is in the current working directory with the file name sonar.all-data.csv.
-
-The dataset is first loaded, the string values converted to numeric and the output column is converted from strings to the integer values of 0 to 1. This is achieved with helper functions load_csv(), str_column_to_float() and str_column_to_int() to load and prepare the dataset.
+이제 앞에서 Bagging 알고리즘을 python으로 구현해보겠스니다. 일단 dataset을 불러온 후에 문자열 자료를 숫자로 바꾸고 문자로 된 결과값을 0 또는 1의 정수로 바꾸어야 합니다. 이를 위해서 아래와 같은 세 개의 함수(load_csv, str_column_to_float, str_column_to_int)를 만들었습니다. 
 
 ```python
 # Bagging Algorithm on the Sonar dataset
@@ -489,7 +487,14 @@ def bagging(train, test, max_depth, min_size, sample_size, n_trees):
 	return(predictions)
 ```
 
+이제 만들어진 함수들을 이용해서 Bagging 알고리즘을 
+A k value of 5 was used for cross-validation, giving each fold 208/5 = 41.6 or just over 40 records to be evaluated upon each iteration.
 
+Deep trees were constructed with a max depth of 6 and a minimum number of training rows at each node of 2. Samples of the training dataset were created with 50% the size of the original dataset. This was to force some variety in the dataset subsamples used to train each tree. The default for bagging is to have the size of sample datasets match the size of the original training dataset.
+
+A series of 4 different numbers of trees were evaluated to show the behavior of the algorithm.
+
+The accuracy from each fold and the mean accuracy for each configuration are printed. We can see a trend of some minor lift in performance as the number of trees is increased.
 
 ```python
 # Test bagging on the sonar dataset
@@ -506,13 +511,28 @@ str_column_to_int(dataset, len(dataset[0])-1)
 n_folds = 5
 max_depth = 6
 min_size = 2
-sample_size = 0.50
-for n_trees in [1, 5, 10, 50]:
+sample_size = 1.0
+for n_trees in [1, 5, 10, 15]:
 	scores = evaluate_algorithm(dataset, bagging, n_folds, max_depth, min_size, sample_size, n_trees)
 	print('Trees: %d' % n_trees)
 	print('Scores: %s' % scores)
 	print('Mean Accuracy: %.3f%%' % (sum(scores)/float(len(scores))))
 ```
+
+> Trees: 1 <br>
+> Scores: [60.97560975609756, 65.85365853658537, 75.60975609756098, 60.97560975609756, 63.41463414634146] <br>
+> Mean Accuracy: 65.366% <br>
+> Trees: 5 <br>
+> Scores: [78.04878048780488, 78.04878048780488, 85.36585365853658, 68.29268292682927, 75.60975609756098] <br>
+> Mean Accuracy: 77.073% <br>
+> Trees: 10 <br>
+> Scores: [70.73170731707317, 68.29268292682927, 85.36585365853658, 75.60975609756098, 85.36585365853658] <br>
+> Mean Accuracy: 77.073% <br>
+> Trees: 15 <br>
+> Scores: [65.85365853658537, 82.92682926829268, 75.60975609756098, 78.04878048780488, 82.92682926829268] <br>
+> Mean Accuracy: 77.073%
+
+
 
 <hr>
 ### Bagging in Marketing Research[^3]
