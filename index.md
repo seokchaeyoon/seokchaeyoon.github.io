@@ -222,7 +222,7 @@ $$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$ </div>
 ##### Bootstrapping
 *해당 코드는 [Machine Learning Mastery](https://machinelearningmastery.com/implement-bagging-scratch-python/)에서 소개된 코드임을 미리 밝혀 둡니다.*
 
-python을 이용해서 bagging 알고리즘을 실행시키기 전에, 우선 bootstrap 방법이 어떻게 코드를 통해서 진행되는 지 살펴보도록 하겠습니다. Bootstrap을 하기 위해서는 기존의 dataset으로부터 몇개의 관찰값을 랜덤으로 뽑아서 샘플을 만들어야 합니다. 여기서 중요한 것은 bootstrap 샘플을 만들 때 같은 관찰값이 중복으로 뽑힐 수 있도록 허용해야 한다는 점입니다.
+python을 이용해서 bagging 알고리즘을 실행시키기 전에, 우선 bootstrap 방법이 어떻게 코드를 통해서 진행되는 지 살펴보도록 하겠습니다. Bootstrap을 하기 위해서는 기존의 dataset으로부터 몇개의 관찰값을 랜덤으로 뽑아서 샘플을 만들어야 합니다. 여기서 중요한 것은 bootstrap 샘플을 만들 때 같은 관찰값이 중복으로 뽑힐 수 있도록 허용해야 한다는 점입니다. <br>
 아래에 있는 subsample이라는 이름의 함수는 이 과정을 하는 데에 핵심적인 기능을 합니다. 이 함수 내의 randrange 함수는 원래 dataset에서 어떤 관찰값을 bootstrap 샘플에 포함시킬 지를 결정합니다.
 
 ```python
@@ -235,7 +235,7 @@ def subsample(dataset, ratio=1.0):
 	return sample
 ```
 
-이제 간단한 데이터를 만들어서 bootstrap이 잘 이루어지는 지를 확인해보겠습니다. 우선 20개의 관찰값을 가진 dataset을 만들었습니다. 각 관찰값은 0부터 9사이의 수에서 뽑았습니다. 이 original dataset의 평균값을 bootstrap 방식으로 계산해보겠습니다. 
+이제 간단한 데이터를 만들어서 bootstrap이 잘 이루어지는 지를 확인해보겠습니다. 우선 20개의 관찰값을 가진 dataset을 만들었습니다. 각 관찰값은 0부터 9 사이의 수에서 뽑았습니다. 이 original dataset의 평균값을 bootstrap 방식으로 계산해보겠습니다. <br>
 Bootstrap을 이용해서 orginal dataset의 평균을 구하기 위해서는, subsample을 만들고 subsample의 평균을 구하는 과정을 여러 번 반복해야 합니다. 
 개별 bootstrap 샘플의 사이즈는 원래 dataset과 동일하게 20개의 관찰값이 되게 세팅해놓았습니다. bootstrap의 갯수를 1개, 10개, 100개로 증가시켰을 때 평균값이 어떻게 되는 지를 확인해 보면, bootstrap의 숫자가 증가할 수록 원래 dataset의 평균값에 가까워지는 것을 확인할 수 있습니다.
 
@@ -272,9 +272,9 @@ for size in [1, 10, 100]:
 	print('Samples=%d, Estimated Mean: %.3f' % (size, mean(sample_means)))
 ```
 
-> Original dataset의 평균값: 4.5
-> Samples=1, Estimated Mean: 5.250
-> Samples=10, Estimated Mean: 4.755
+> Original dataset의 평균값: 4.5 <br>
+> Samples=1, Estimated Mean: 5.250 <br>
+> Samples=10, Estimated Mean: 4.755 <br>
 > Samples=100, Estimated Mean: 4.447
 
 ##### Bagging
