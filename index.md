@@ -464,7 +464,7 @@ def subsample(dataset, ratio):
 	return sample
 ```
 
-bagging_predict 함수는 여러 base classifier의 예측값을 결합하는 함수이다. 이 코드에서는 majority voting 방식으로 예측값을 결합했다.
+bagging_predict 함수는 여러 base classifier의 예측값을 결합하는 함수다. 이 코드에서는 majority voting 방식으로 예측값을 결합했습니다.
 
 ```python
 # Make a prediction with a list of bagged trees
