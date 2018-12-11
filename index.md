@@ -191,21 +191,32 @@ Bootstrapping에서 핵심은 Bootstrap이라는 Orignal Dataset에서 뽑은 �
 
 $$ { \hat { y }  }_{ Ensemble }=arg\max _{ i }{ (\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=i) } ,\ i\ \in \ \{ 0,\ 1\} ) } $$ 
 
- Majority Voting은 1로 분류한 것과 0으로 분류한 것의 수를 각각 센 다음, 다수의 범주로 할당해주는 결합방식입니다. 위의 예의 경우 6개의 모델이 1로 분류했고($$\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\ 1)\ =\ 6 }$$), 4개의 모델이 0으로 분류했기 때문에($$\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\ 0)\ =\ 4 }$$) Vajority Voting에 따라서 해당 데이터를 1로 할당하게 됩니다. ($$ { \hat { y }  }_{ Ensemble }\ =\ 1 $$)
+ Majority Voting은 1로 분류한 것과 0으로 분류한 것의 수를 각각 센 다음, 다수의 범주로 할당해주는 결합방식입니다. 위의 예의 경우 6개의 모델이 1로 분류했고, 4개의 모델이 0으로 분류했기 때문에 Vajority Voting에 따라서 해당 데이터를 1로 할당하게 됩니다.
 
+$$\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\ 1)\ =\ 6 }$$
+$$\sum _{ j=1 }^{ n }{ \delta ({ \hat { y }  }_{ j }=\ 0)\ =\ 4 }$$
+$$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$
 
 * Weighted Voting (weight: validation accuracy of individual models)
 
 $$ { \hat { y }  }_{ Ensemble }\ =\ arg\max _{ i }{ \left( \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ i \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } ,\ i\ \in \ \{ 0,\ 1\}  \right)  }   $$ <br>
 
 Weighted Voting 중 validation accuracy를 weight로 활용하는 방법은, 이전에 개별 모델이 보여주었던 정확성을 라벨링에 활용하는 방식입니다. 위의 예에서 Model 2는 vaidation accuracy가 0.75이고 Model 7은 validation accuracy가 0.95입니다. Majority Voting 방식으로 라벨링을 한다면, Model 2와 Model 7의 결과값에 같은 비중을 준다는 것인데, 이는 validation accuracy를 고려할 때 문제가 있는 방식일 겁니다.
-Validation accuracy를 weight로 고려하면, 새로운 데이터를 0으로 할당한 경우의 voting 값은 0.424($$ \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 0 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } =0.424  $$), 1로 할당한 경우의 voting 값은 0.576($$  \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 1 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } =0.576 $$)입니다. 이에 따라서 새로운 데이터를 1로 할당할 수 있을 것입니다.
+Validation accuracy를 weight로 고려하면, 새로운 데이터를 0으로 할당한 경우의 voting 값은 0.424, 1로 할당한 경우의 voting 값은 0.576입니다. 이에 따라서 새로운 데이터를 1로 할당할 수 있을 것입니다.
+
+$$ \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 0 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } =0.424  $$
+$$  \frac { \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right) \cdot \delta \left( { \hat { y }  }_{ j }=\ 1 \right)  }  }{ \sum _{ j=1 }^{ n }{ \left( { ValiAcc }_{ j } \right)  }  } =0.576 $$
+$$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$
 
 * Weighted Voting (weight: predicted probability of each class)
 
 $$ { \hat { y }  }_{ Ensemble }=arg\max _{ i }{ \left( \frac { 1 }{ n } \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } ,i\in \{ 0,\ 1\}  \right)  }   $$
 
-Validation accuracy 말고도 각 모델에서의 예측 cofindence를 weight로 사용할 수도 있습니다. 위의 예의 경우 주황색 칼럼의 수치를 예측 confidence로 사용할 수 있습니다. 이 방식을 따르면 0으로 할당하는 것의 voting값은 0.375($$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=0 \right)  } =0.375  $$), 1로 할당하는 것의 voting값은 0.625($$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$)입니다. 이에 따라 최종적으로 새로운 데이터를 1로 할당할 수 있습니다. 
+Validation accuracy 말고도 각 모델에서의 예측 cofindence를 weight로 사용할 수도 있습니다. 위의 예의 경우 주황색 칼럼의 수치를 예측 confidence로 사용할 수 있습니다. 이 방식을 따르면 0으로 할당하는 것의 voting값은 0.375, 1로 할당하는 것의 voting값은 0.625입니다. 이에 따라 최종적으로 새로운 데이터를 1로 할당할 수 있습니다. 
+
+$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=0 \right)  } =0.375  $$
+$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$
+$$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$
 
 <hr>
 ### Bagging in Marketing Research
