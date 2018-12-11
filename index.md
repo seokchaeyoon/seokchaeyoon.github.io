@@ -55,7 +55,7 @@ Ensemble 학습은 이 명제와 매우 비슷한 intuition을 가지고 있습�
 Ensenble 학습이 왜 단일 알고리즘보다 더 좋은 performance를 보여주냐는 질문에 답하기 위해서 우선, Bias와 Variance의 개념부터 짚어 보겠습니다.
 현실에서 데이터가 어떻게 생성되는 지를 아래의 식으로 표현해 보겠습니다. <br>
 
-$$ y={ F }^{ * }(X)+\epsilon ,\quad \epsilon \sim N(0,{ \sigma  }^{ 2 }) $$ <br>
+<div style="text-align:center"> $$ y={ F }^{ * }(X)+\epsilon ,\quad \epsilon \sim N(0,{ \sigma  }^{ 2 }) $$ </div>
 
 여기에서 $${ F }^{ * }(X)$$는 input값이 주어졌을 때 y값을 생성하는 기저 함수라고 생각하겠습니다. 연구자가 학습을 통해서 알고자 하는 타겟이 바로 $${ F }^{ * }(X)$$입니다. 이 함수는 데이터가 생성되는 매커니즘을 완벽하게 구현하고 있으나, 이슈가 되는 것은 $$\epsilon$$입니다. 아무리 기저함수를 완벽하게 알고 있다고 하더라도 $$\epsilon$$로 표현되는 데이터 생성과정의 노이즈까지 완벽하게 잡아낼 수는 없습니다. 그러면 아래의 이미지와 같은 일이 일어나게 됩니다.
 <img src="images/dgp.PNG" alt="dgp">
