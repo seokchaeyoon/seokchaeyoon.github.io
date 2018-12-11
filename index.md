@@ -278,7 +278,7 @@ for size in [1, 10, 100]:
 > Samples=100, Estimated Mean: 4.447
 
 ##### Bagging
-이제 앞에서 Bagging 알고리즘을 python으로 구현해보겠스니다. 일단 dataset을 불러온 후에 문자열 자료를 숫자로 바꾸고 문자로 된 결과값을 0 또는 1의 정수로 바꾸어야 합니다. 이를 위해서 아래와 같은 세 개의 함수(load_csv, str_column_to_float, str_column_to_int)를 만들었습니다. 
+이제 앞에서 Bagging 알고리즘을 python으로 구현해보겠스니다. 일단 dataset을 불러온 후에 문자열 자료를 숫자로 바꾸고 문자로 된 결과값을 0 또는 1의 정수로 바꾸어야 합니다. 이를 위해서 아래와 같은 3개의 함수(load_csv, str_column_to_float, str_column_to_int)를 만들었습니다. 
 
 ```python
 # Bagging Algorithm on the Sonar dataset
@@ -314,7 +314,7 @@ def str_column_to_int(dataset, column):
 	return lookup
 ```
 
-We will use k-fold cross validation to estimate the performance of the learned model on unseen data. This means that we will construct and evaluate k models and estimate the performance as the mean model error. Classification accuracy will be used to evaluate each model. These behaviors are provided in the cross_validation_split(), accuracy_metric() and evaluate_algorithm() helper functions.
+이 코드에서는 모델의 성능을 측정하기 위해서 k-fold 교차 검증 방법을 사용했습니다. 이를 위해서 training 데이터셋을 k로 쪼개고 k-1개의 데이터셋은 training data, 나머지 1개의 데이트셋은 validation data로 사용하고 모델의 error를 계산했습니다. 각각의 모델의 분류 정확성을 측정하기 위해서  Classification accuracy will be used to evaluate each model. These behaviors are provided in the cross_validation_split(), accuracy_metric() and evaluate_algorithm() helper functions.
 
 ```python
 # Split a dataset into k folds
