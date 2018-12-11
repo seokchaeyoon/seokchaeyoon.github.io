@@ -278,6 +278,9 @@ for size in [1, 10, 100]:
 > Samples=100, Estimated Mean: 4.447
 
 ##### Bagging
+The example assumes that a CSV copy of the dataset is in the current working directory with the file name sonar.all-data.csv.
+
+The dataset is first loaded, the string values converted to numeric and the output column is converted from strings to the integer values of 0 to 1. This is achieved with helper functions load_csv(), str_column_to_float() and str_column_to_int() to load and prepare the dataset.
 
 ```python
 # Bagging Algorithm on the Sonar dataset
@@ -311,7 +314,11 @@ def str_column_to_int(dataset, column):
 	for row in dataset:
 		row[column] = lookup[row[column]]
 	return lookup
- 
+```
+
+We will use k-fold cross validation to estimate the performance of the learned model on unseen data. This means that we will construct and evaluate k models and estimate the performance as the mean model error. Classification accuracy will be used to evaluate each model. These behaviors are provided in the cross_validation_split(), accuracy_metric() and evaluate_algorithm() helper functions.
+
+```python
 # Split a dataset into k folds
 def cross_validation_split(dataset, n_folds):
 	dataset_split = list()
@@ -351,7 +358,11 @@ def evaluate_algorithm(dataset, algorithm, n_folds, *args):
 		accuracy = accuracy_metric(actual, predicted)
 		scores.append(accuracy)
 	return scores
- 
+```
+
+We will also use an implementation of the Classification and Regression Trees (CART) algorithm adapted for bagging including the helper functions test_split() to split a dataset into groups, gini_index() to evaluate a split point, get_split() to find an optimal split point, to_terminal(), split() and build_tree() used to create a single decision tree, predict() to make a prediction with a decision tree and the subsample() function described in the previous step to make a subsample of the training dataset
+
+```python
 # Split a dataset based on an attribute and an attribute value
 def test_split(index, value, dataset):
 	left, right = list(), list()
@@ -453,12 +464,20 @@ def subsample(dataset, ratio):
 		index = randrange(len(dataset))
 		sample.append(dataset[index])
 	return sample
- 
+```
+
+A new function named bagging_predict() is developed that is responsible for making a prediction with each decision tree and combining the predictions into a single return value. This is achieved by selecting the most common prediction from the list of predictions made by the bagged trees. 
+
+```python
 # Make a prediction with a list of bagged trees
 def bagging_predict(trees, row):
 	predictions = [predict(tree, row) for tree in trees]
 	return max(set(predictions), key=predictions.count)
+ ```
  
+Finally, a new function named bagging() is developed that is responsible for creating the samples of the training dataset, training a decision tree on each, then making predictions on the test dataset using the list of bagged trees.
+ 
+ ```python
 # Bootstrap Aggregation Algorithm
 def bagging(train, test, max_depth, min_size, sample_size, n_trees):
 	trees = list()
@@ -468,7 +487,11 @@ def bagging(train, test, max_depth, min_size, sample_size, n_trees):
 		trees.append(tree)
 	predictions = [bagging_predict(trees, row) for row in test]
 	return(predictions)
- 
+```
+
+
+
+```python
 # Test bagging on the sonar dataset
 seed(1)
 # load and prepare data
