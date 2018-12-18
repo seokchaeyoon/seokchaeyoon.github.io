@@ -215,8 +215,8 @@ $$ { \hat { y }  }_{ Ensemble }=arg\max _{ i }{ \left( \frac { 1 }{ n } \sum _{ 
 
 Validation accuracy 말고도 각 모델에서의 예측 cofindence를 weight로 사용할 수도 있습니다. 위의 예의 경우 주황색 칼럼의 수치를 예측 confidence로 사용할 수 있습니다. 이 방식을 따르면 0으로 할당하는 것의 voting값은 0.375, 1로 할당하는 것의 voting값은 0.625입니다. 이에 따라 최종적으로 새로운 데이터를 1로 할당할 수 있습니다. 
 
-<div style="text-align:center">$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=0 \right)  } =0.375  $$
-$$ \sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$
+<div style="text-align:center">$$ \frac { 1 }{ n }\sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=0 \right)  } =0.375  $$
+$$ \frac { 1 }{ n }\sum _{ j=1 }^{ n }{ P\left( { y }_{ j }=1 \right)  } =0.625  $$
 $$ \therefore { \hat { y }  }_{ Ensemble }\ =\ 1 $$ </div>
 
 <hr>
